@@ -13,7 +13,8 @@ gem 'webrat', '0.7.1'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
  group :development do
-   gem 'rspec-rails','2.0.0.beta.18'
+   gem 'rspec-rails','2.0.0.beta.18'    
+   gem 'annotate', '2.4.0'
  end                                
 
 group :test do
