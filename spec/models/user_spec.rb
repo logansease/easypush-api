@@ -102,15 +102,60 @@ describe User do
   describe "password encryption" do
      before(:each) do
       @user = User.create!(@attr)
+     end    
+     
+     it "should have a salt" do
+        @user.should respond_to(:salt)
      end
           
      it "should have an encry pass attr" do
         @user.should respond_to(:encrypted_password)
+     end      
+     
+     it "should set the encry pass attr" do
+        @user.encrypted_password.should_not be_blank
+     end   
+     
+     describe "has password method" do
+       it "should exist" do
+          @user.should respond_to(:has_password?)
+       end
+       
+       it "should return true if match" do
+          @user.has_password?(@attr[:password]).should be_true        
+       end      
+       
+       it "should return false if match" do
+          @user.has_password?(@attr["invalid"]).should be_false        
+       end
+       
      end
+          
+     describe "authenticate method" do        
+       
+        it "should respond to auth" do
+           User.should respond_to(:authenticate)
+        end
+       
+        it "should return nil on email/pass mismatch" do
+           User.authenticate(@attr[:email], "wrongpass").should be_nil
+        end               
+        
+        it "should return nil on no user" do
+           User.authenticate("barfoo", @attr[:password])
+        end   
+        
+        it "should return user if matched" do
+           auth = User.authenticate(@attr[:email], @attr[:password])
+           auth.should == @user 
+        end
+        
+     end    
      
   end
   
 end
+
 
 
 
@@ -125,5 +170,6 @@ end
 #  created_at         :datetime
 #  updated_at         :datetime
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
