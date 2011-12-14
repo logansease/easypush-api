@@ -59,6 +59,18 @@ describe SessionsController do
        end
        
      end
+  end 
+  
+  describe "delete session" do
+     
+     it "should sign the user out" do
+          test_sign_in(Factory(:user)) #def in spec_helper
+          delete :destroy
+          controller.should_not be_signed_in
+          response.should redirect_to(root_path)
+     end                              
+     
+    
   end
 
 end
