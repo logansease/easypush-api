@@ -3,8 +3,13 @@ class SessionsController < ApplicationController
     @title = "Sign in"
   end  
   
-  def create
-  
+  def create 
+    user = User.authenticate(params[:session][:email], params[:session][:password])
+    if user.nil
+      #render 'new'
+    else
+      #successful sign in
+    end
   end
   
   def destroy

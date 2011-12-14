@@ -15,6 +15,24 @@ describe SessionsController do
       get :new
       response.should have_selector('title', :content => "Sign in")
     end
+  end   
+  
+  describe "post create" do
+     describe "failure" do
+          
+        before(:each) do
+           @attr = {:email => "", :password => ""}
+        end
+        
+       it "should re-render submission page" do
+           post :create, :session => @attr
+       end
+       
+     end
+     
+     describe success do
+       
+     end
   end
 
 end
