@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
       #since as noted below we are not moving to a new request
       render 'new'  #note this is not a new request
     else
-      #successful sign in
+      sign_in user
+      redirect_to user_path(user)
+      #or redirect_to user
     end
   end
   

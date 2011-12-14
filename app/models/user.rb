@@ -17,13 +17,20 @@ class User < ActiveRecord::Base
                        :length => { :within => 6..40 }   
                        
   before_save :encrypt_password
-          
+   
+   ## or class << self
+   ## def authenticate(       
   def User.authenticate(email, submitted_password)
      user = User.find_by_email(email); 
-     
-     return nil if user.nil?
-     return user if user.has_password?(submitted_password)   
-  end        
+      
+     (user && user.has_password?(submitted_password)) ? user : nil
+       
+  end                  
+  
+  def User.authenticate_with_salt(id, cookie_salt)
+     user = find_by_id(id)
+     (user && user.salt == cookie_salt) ? user : nil
+  end
            
   def has_password?(submitted_password)
      encrypted_password == encrypt(submitted_password)
