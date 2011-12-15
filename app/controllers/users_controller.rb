@@ -44,7 +44,12 @@ class UsersController < ApplicationController
   
   def index
      @title = "All users" 
-     @users = User.all
+     
+     #for will_paginate instead of
+     #@users = User.all   
+     @users = User.paginate(:page => params[:page]) 
+     #TODO how does .paginate get User.all? how did the gem extend the User to add the paginate method
+     #how can I view this object to see where paginate is coming from
   end   
   
   private

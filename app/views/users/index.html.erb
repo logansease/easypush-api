@@ -1,15 +1,26 @@
 <!-- TODO can we name template files better?-->
 
 <h1>All users</h1>                           
+      
+<%= will_paginate%> <!-- note you can tell it the object to paginate as an argument if not by convention -->
 
 <ul class="users"> 
-	<!-- TODO how do you determine the arguments in ||-->
-	<% @users.each do |user| %>        
-	     <li>
-			<%= gravatar_for user, :size => 30 %>
-			<%= link_to user.name, user %>		
-		</li>
-	<%end%>
+	<!-- TODO how do you determine the arguments in ||-->  
 	
-</ul>	
+	 <%= render @users %>   
+	
+	<!--  the above line works in place of this:
+		<% @users.each do |user| %>  
+	        <%=render 'user', :user => user %>
+	      <%end%> 
+		since rails will enumerate the array and render each with the class name -->
+	
+	      
+
+	   
+  
+	
+</ul> 
+
+<%= will_paginate%>   
 	
