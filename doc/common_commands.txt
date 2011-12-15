@@ -1,0 +1,1 @@
+rails generate integration_test test_name

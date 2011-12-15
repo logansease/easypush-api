@@ -13,8 +13,7 @@ class SessionsController < ApplicationController
       render 'new'  #note this is not a new request
     else
       sign_in user
-      redirect_to user_path(user)
-      #or redirect_to user
+      redirect_back_or(user) #helper mtd
     end
   end
   
