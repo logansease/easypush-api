@@ -109,6 +109,81 @@ describe UsersController do
       
      end
      
+  end   
+  
+  describe "get edit" do
+     
+     before(:each) do
+        @user = Factory(:user)
+        test_sign_in(@user)
+     end
+                          
+     it "should be successful" do
+        get :edit, :id => @user
+        response.should be_success
+     end
+     
+     it "should have correct title" do
+        get :edit, :id => @user
+        response.should have_selector('title', :content => "Edit user")
+     end                              
+        
+     it "should have a link to gravitar" do
+        get :edit, :id => @user
+        response.should have_selector('a', :href => "http://gravatar.com/emails",
+                                            :content => "change")
+     end
+    
+  end      
+  
+  describe "put update" do   
+    
+     before(:each) do
+           @user = Factory(:user)
+           test_sign_in(@user)
+     end     
+     
+     describe "failure" do   
+       
+       before(:each) do
+             @attr = {:name => "", :email => "", 
+                   :password => "", :password_confirmation => ""}
+       end
+            
+         it "should render the edit page" do
+            put :update, :id => @user, :user => @attr
+            response.should render_template('edit')
+         end   
+         
+         it "should have the right title" do
+            put :update, :id => @user, :user => @attr
+             response.should have_selector('title', :content => "Edit user")  
+         end
+     end  
+     
+     describe "success" do  
+       
+        before(:each) do
+             @attr = {:name => "new name2", :email => "newemail@a.com", 
+                   :password => "foobar2", :password_confirmation => "foobar2"}
+       end      
+       
+       it "should change user attributes" do
+          put :update, :id => @user, :user => @attr
+          user2 = assigns(:user) #get the user from the controller
+          @user.reload
+          @user.name.should == user2.name
+          @user.email.should == user2.email
+          @user.encrypted_password.should == user2.encrypted_password
+       end    
+       
+       it "should have a flash message" do
+          put :update, :id => @user, :user => @attr
+          flash[:success].should =~ /updated/i
+       end
+       
+
+     end
   end
 
 end
