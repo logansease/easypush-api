@@ -1,7 +1,7 @@
 class UsersController < ApplicationController   
   
   
-  before_filter :authenticate, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:edit, :update, :index]
   before_filter :correct_user, :only => [:edit, :update]
   
   def new 
@@ -40,7 +40,12 @@ class UsersController < ApplicationController
        @title = "Edit user"  
        render 'edit'   
     end  
-  end     
+  end  
+  
+  def index
+     @title = "All users" 
+     @users = User.all
+  end   
   
   private
   

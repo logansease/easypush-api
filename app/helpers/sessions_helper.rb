@@ -15,6 +15,7 @@ module SessionsHelper
      @current_user ||= user_from_remember_token
   end  
   
+  #TODO Mark returns
   def signed_in?
      !current_user.nil?
   end    
@@ -39,7 +40,7 @@ module SessionsHelper
     session[:return_to] = nil 
   end  
              
-  
+  #TODO method comments
   def store_location
       session[:return_to] = request.fullpath   
     end   

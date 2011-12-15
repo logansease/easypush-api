@@ -149,6 +149,7 @@ div.field, div.actions{
 	margin-bottom: 10px;
 }
        
+/* TODO separate CSS files */  
 
 /* Error messages */
 
@@ -197,4 +198,16 @@ div.field, div.actions{
 {
 	font-size: 12px;
 	list-style: square;
+}      
+
+
+/* users index */
+
+ul.users {
+	margin-top: 1em;
+}             
+
+ul.users li
+{
+	list-style:none;
 }
