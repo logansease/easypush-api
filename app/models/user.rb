@@ -1,7 +1,21 @@
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
+#
    
 class User < ActiveRecord::Base    
   
-  attr_accessor   :password
+  attr_accessor   :password    #defines new getter and setter
   attr_accessible :name, :email, :password, :password_confirmation  
   
   email_reg_ex = /\A[\w+\-.]+@[a-z\d.]+\.[a-z]+\z/i
@@ -60,16 +74,4 @@ end
 
 
 
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#
 

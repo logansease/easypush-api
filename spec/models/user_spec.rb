@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#
+
 require 'spec_helper'
 
 describe User do
@@ -152,6 +165,29 @@ describe User do
         
      end    
      
+  end   
+  
+  describe "admin attribute" do
+     
+    before(:each) do
+       @user = User.create!(@attr)
+    end                          
+    
+    it "should respond to admin" do
+       @user.should respond_to(:admin)
+    end   
+    
+    it "should should be false by default" do
+        @user.should_not be_admin 
+        #or @user.admin?.should_not be_true
+    end
+    
+    it "should be convertible to admin" do
+        @user.toggle!(:admin)    #.toggle converts false to true, ! writes to db     
+        @user.should be_admin
+    end
+    
+    
   end
   
 end
@@ -160,16 +196,5 @@ end
 
 
 
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#
+
 
