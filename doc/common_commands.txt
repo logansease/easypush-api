@@ -5,7 +5,8 @@ rails generate integration_test test_name
 #db tasks
 rake db:migrate
 rake db:test:prepare   
-rake db:reset  
+rake db:reset    
+rake db:populate
 
 #add field to db
 rails generate migration add_admin_to_users \

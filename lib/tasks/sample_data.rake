@@ -15,7 +15,15 @@ namespace :db do
                       :email =>email, 
                       :password => password, 
                       :password_confirmation => password)
-      end                                         
+      end  
+     
+     #note more efficient than doing User.all[1..6] 
+      User.all(:limit => 6).each do |user|
+         50.times do
+            user.microposts.create!(:content => Faker::Lorem.sentence(5))
+            
+         end
+      end                                       
      
    end
   
