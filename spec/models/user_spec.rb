@@ -1,16 +1,3 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#
-
 require 'spec_helper'
 
 describe User do
@@ -188,6 +175,40 @@ describe User do
     end
     
     
+  end   
+  
+  describe "password assoc" do
+     before(:each) do
+        @user = User.create(@attr)
+     end                         
+     
+     it "should have a micro post attrib" do
+        @user.should respond_to(:microposts)
+     end
+  end  
+  
+  describe "Micropost association" do
+     before(:each) do
+        @user = Factory(:user)
+        @mp1 = Factory(:micropost, :user => @user, :created_at => 1.day.ago)
+        @mp2 = Factory(:micropost, :user => @user, :created_at => 1.minute.ago)
+     end
+     
+     it "should have the correct posts in correct order"  do
+        @user.microposts.should == [@mp2, @mp1]
+     end   
+     
+     it "should destroy assoc microposts" do
+        @user.destroy
+        [@mp1, @mp2].each do |micropost|
+            Micropost.find_by_id(micropost.id).should be_nil
+        end    
+        
+        #or you could say lambda do
+        # => Micropost.find(micropost.id)
+        #end.should raise_error(ActiveRecord::RecordNotFound)
+        
+     end
   end
   
 end
@@ -197,4 +218,19 @@ end
 
 
 
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
+#
 

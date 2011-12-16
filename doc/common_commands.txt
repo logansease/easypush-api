@@ -10,3 +10,7 @@ rake db:reset
 #add field to db
 rails generate migration add_admin_to_users \
 > admin:boolean
+
+rails generate model New_Model column:type 
+
+tail -f logs/test.log

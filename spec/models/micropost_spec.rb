@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: microposts
+#
+#  id         :integer         not null, primary key
+#  content    :string(255)
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+require 'spec_helper'
+   
+describe Micropost do 
+ 
+  before(:each) do         
+     @user = Factory(:user)
+     @attr = {:content => "foobar"}
+  end                                             
+  
+  it "should create a new instance with valid attribs" do
+     @user.microposts.create!(@attr)
+  end     
+  
+  describe "the user associations" do   
+    
+    before(:each) do               
+       @micropost = @user.microposts.create(@attr)
+    end
+    
+     it "should havea  user attrib" do
+        @micropost.should respond_to(:user)
+     end
+     
+     it "should have correct assc user" do
+         @micropost.user_id.should == @user.id
+         @micropost.user.should == @user
+     end
+  end
+  
+end
+
+
