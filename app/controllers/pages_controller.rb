@@ -1,7 +1,9 @@
 class PagesController < ApplicationController  
   
   def home    
-    @title = "Home"
+    @title = "Home"   
+    #TODO why not use current_user.microposts.build
+    @micropost = Micropost.new if signed_in?
   end
 
   def contact  

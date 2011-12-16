@@ -48,6 +48,11 @@ module SessionsHelper
     def current_user?(user) 
       #TODO , why is isn't this @current user
        return user == current_user
+    end    
+    
+    def authenticate  
+     # flash[:notice] = "Please sign in to access this page" or below
+     deny_access unless signed_in?
     end
                                               
   private 
