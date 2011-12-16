@@ -122,6 +122,15 @@ describe UsersController do
          response.should have_selector('td>a', :content => user_path(@user), 
                                                 :href => user_path(@user))
      end
+            
+     it "should show the users microposts" do
+        mp1 = Factory(:micropost, :user => @user, :content => "new content")
+        mp2 = Factory(:micropost, :user => @user, :content => "foo zzz") 
+        
+        get :show, :id => @user
+        response.should have_selector('span.content', :content => mp1.content)
+        response.should have_selector('span.content', :content => mp2.content) 
+     end
      
   end 
   
