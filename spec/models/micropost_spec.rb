@@ -15,7 +15,7 @@ describe Micropost do
  
   before(:each) do         
      @user = Factory(:user)
-     @attr = {:content => "foobar"}
+     @attr = {:content => "foobar"}   
   end                                             
   
   it "should create a new instance with valid attribs" do
@@ -51,7 +51,9 @@ describe Micropost do
         a = "a" * 51
         @user.microposts.build(:content => "a" * 141).should_not be_valid
      end
-  end
+  end   
+  
+  
   
 end
 

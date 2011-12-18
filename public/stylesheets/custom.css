@@ -241,7 +241,17 @@ table.microposts tr td.micropost span.timestamp
 	display: block;
 	font-size: 85%;
 	color: #666;
-}                
+}           
+         
+td.delete
+{
+	width:30px;
+}
+
+td.delete a
+{                
+	float:right;
+}     
                 
 div.user_info img {
 	padding-right: 0.1em;
