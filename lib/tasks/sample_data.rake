@@ -1,6 +1,7 @@
-require 'faker'
-
-namespace :db do
+namespace :db do     
+  
+  require 'faker'    
+  
    desc "Fill database with sample data"
    task :populate => :environment do
       Rake::Task['db:reset'].invoke  
@@ -8,12 +9,7 @@ namespace :db do
       make_users
       make_microposts
       make_relationships
-      
-      
-     
-     
-                                      
-     
+   
    end
   
 end     
