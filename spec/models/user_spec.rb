@@ -1,3 +1,21 @@
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
+#  fb_user_id         :integer
+#
+
+
 require 'spec_helper'
 
 describe User do
@@ -154,6 +172,21 @@ describe User do
      
   end   
   
+  describe "fb id attribute" do
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "should respond to fb_id" do
+      @user.should respond_to(:fb_user_id)
+    end
+    
+    it "should be able to link to a new fb user" 
+    
+    it "should be able to unlink from a fb user" 
+    
+  end
+  
   describe "admin attribute" do
      
     before(:each) do
@@ -280,7 +313,7 @@ describe User do
         @user.should respond_to(:followers)
      end                                   
      
-     it "should include the followers int he follower array" do
+     it "should include the followers in the follower array" do
         @user.follow!(@followed)
         @followed.followers.should include(@user)
      end
@@ -288,25 +321,3 @@ describe User do
   end
   
 end
-
-
-
-
-
-
-
-
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#  admin              :boolean         default(FALSE)
-#
-

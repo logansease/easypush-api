@@ -78,6 +78,41 @@ describe UsersController do
       
     end
   end
+  
+  describe "get fb_new" do
+    it "should be successful" 
+      
+    it "should have the right title" 
+      
+  end
+  
+    
+  describe "post fb_create" do
+     describe "failure" do
+                                                                                                       
+       it "should have the right title" 
+       
+       it "should render the new page"  
+
+       it "should not create a user" 
+    
+       
+     end  
+     
+     describe "success" do
+                
+       it "should create a user linked to a fb account" 
+
+            
+       it "should redirect to user show page" 
+  
+       
+       it "should have a welcome message" 
+
+       it "should sign the user in" 
+    end
+  end
+  
 
   describe "GET 'new'" do
     it "should be successful" do
@@ -91,6 +126,7 @@ describe UsersController do
     end   
   end     
   
+ 
   describe "get show" do     
     
     before(:each) do
@@ -204,12 +240,12 @@ describe UsersController do
        end   
        
        it "should have a welcome message" do
-          post:create, :user => @attr
+          post :create, :user => @attr
           flash[:success].should =~ /welcome to the sample app/i
        end          
        
        it "should sign the user in" do
-           post:create, :user => @attr 
+           post :create, :user => @attr 
            controller.should be_signed_in
        end
       
@@ -416,5 +452,7 @@ describe UsersController do
      end
     
   end
+  
+  
 
 end

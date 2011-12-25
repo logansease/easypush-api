@@ -1,7 +1,7 @@
 class UsersController < ApplicationController   
   
   
-  before_filter :authenticate, :except => [:show, :new, :create]
+  before_filter :authenticate, :except => [:show, :new, :create, :fb_signin]
   before_filter :correct_user, :only => [:edit, :update]   
   before_filter :admin_user, :only => [:destroy]
   
@@ -70,10 +70,17 @@ class UsersController < ApplicationController
      #how can I view this object to see where paginate is coming from
   end      
   
-  
   def destroy
      User.find(params[:id]).destroy  
      redirect_to users_path, :flash => {:success => "User Deleted"}
+  end
+  
+  def fb_new
+    
+  end
+  
+  def fb_create
+    
   end
   
   private

@@ -1,10 +1,19 @@
 SampleApp::Application.routes.draw do  
  
   
-  resources :sessions, :only => [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create, :destroy] do 
+    collection do
+      post :fb_signin
+    end
+  end
+  
   resources :users do
     member do
       get :following, :followers       #makes users/1/following and following_user_path
+    end
+    collection do
+      post :fb_create
+      get :fb_new
     end
   end
   

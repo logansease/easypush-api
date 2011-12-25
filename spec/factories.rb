@@ -3,6 +3,7 @@ Factory.define :user do |user|
    user.email                   "lsease@gmail.com"
    user.password                "foobar"
    user.password_confirmation   "foobar"
+   user.fb_user_id              6206197
 end       
 
 Factory.define :micropost do |mp|

@@ -1,7 +1,28 @@
+ require 'digest/md5'
+
 class SessionsController < ApplicationController
+  
   def new 
     @title = "Sign in"
   end  
+  
+  def fb_signin
+    if params[:fb_id] != nil
+        if user = User.find_by_fb_user_id(params[:fb_id])
+          if valid_facebook_cookie_for_facebook_id?(params[:fb_id])
+            sign_in(user)
+            @fb_access_token = params[:access_token]
+            redirect_to user
+            return
+          end
+        else
+          #redirect to fb_register page, set @fb_id, access token
+        end
+    end
+    
+    redirect_to root_path
+  end
+  
   
   def create 
     user = User.authenticate(params[:session][:email], params[:session][:password])

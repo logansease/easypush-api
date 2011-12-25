@@ -1,4 +1,25 @@
+require 'base64'
+require 'openssl'
+require 'rails'
+
+
+
 module SessionsHelper   
+  
+  @fb_app_id = "179989805389930" # YOUR FACEBOOK APP ID
+  @fb_app_secret = "bb18cde894bb67f6bead01fb16911a7c" # YOUR FACEBOOK APP SECRET KEY
+  
+    
+  def fb_sign_in(fb_user_id)
+    #user = User.find_by_fb_user_id(fb_user_id);
+    user = User.find_by_id(1)
+    sign_in(user);
+  end
+  
+  def fb_user?(facebook_id)
+     user = User.find_by_fb_user_id(facebook_id);
+     user != nil
+  end
   
   def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id, user.salt] 
@@ -54,6 +75,36 @@ module SessionsHelper
      # flash[:notice] = "Please sign in to access this page" or below
      deny_access unless signed_in?
     end
+    
+
+  def valid_facebook_cookie_for_facebook_id?(fb_id) 
+
+    signed_request = cookies["fbsr_179989805389930"]
+
+    if signed_request
+
+      secret = "bb18cde894bb67f6bead01fb16911a7c"
+  
+      #decode data
+      encoded_sig, payload = signed_request.split('.')
+      sig = base64_url_decode(encoded_sig).unpack("H*")[0]
+      data = JSON.parse base64_url_decode(payload)
+  
+      if data['algorithm'].to_s.upcase != 'HMAC-SHA256'
+        Rails.logger.error 'Unknown algorithm. Expected HMAC-SHA256'
+        return false
+      end
+  
+      #check sig
+      expected_sig = OpenSSL::HMAC.hexdigest('sha256', secret, payload)
+      if expected_sig != sig
+      # Rails.logger.error 'Bad Signed JSON signature!'
+        return false
+      end
+      
+      return data['user_id'] == fb_id.to_s 
+    end
+  end
                                               
   private 
   
@@ -64,6 +115,12 @@ module SessionsHelper
   
     def remember_token
       cookies.signed[:remember_token] || [nil, nil]
-    end     
+    end   
+    
+    def base64_url_decode str
+      encoded_str = str.gsub('-','+').gsub('_','/')
+      encoded_str += '=' while !(encoded_str.size % 4).zero?
+      Base64.decode64(encoded_str)
+    end
    
 end

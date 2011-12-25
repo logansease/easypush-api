@@ -1,3 +1,5 @@
+
+
 <h1>Sign in</h1>
 
 <%= form_for(:session, :url =>  sessions_path ) do |f| %>
@@ -17,5 +19,10 @@
 </div>
 
 <% end %>
+
+<div id="fb-root"></div>    
+<p>
+<div class="fb-login-button" onclick="Fb_Login();"></div>
+</p>
           
 <p> <%= link_to "Sign up now", signup_path %></p>
