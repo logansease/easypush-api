@@ -77,11 +77,13 @@ module SessionsHelper
     end
     
 
-  def valid_facebook_cookie_for_facebook_id?(fb_id) 
+  def valid_facebook_cookie_for_facebook_id?(fb_id, signed_request = nil) 
 
-    signed_request = cookies["fbsr_179989805389930"]
-
-    if signed_request
+    if(!signed_request)
+      signed_request = cookies["fbsr_179989805389930"]
+    end
+    
+    if signed_request && !signed_request.blank?
 
       secret = "bb18cde894bb67f6bead01fb16911a7c"
   
@@ -105,6 +107,11 @@ module SessionsHelper
       return data['user_id'] == fb_id.to_s 
     end
   end
+  
+  def generated_password
+    #Digest::SHA1.hexdigest("--#{Time.now.to_s}----")[0,6]
+    "aaaaaaa"
+  end
                                               
   private 
   
@@ -118,9 +125,11 @@ module SessionsHelper
     end   
     
     def base64_url_decode str
-      encoded_str = str.gsub('-','+').gsub('_','/')
-      encoded_str += '=' while !(encoded_str.size % 4).zero?
-      Base64.decode64(encoded_str)
+      if str
+        encoded_str = str.gsub('-','+').gsub('_','/')
+        encoded_str += '=' while !(encoded_str.size % 4).zero?
+        Base64.decode64(encoded_str)
+      end
     end
    
 end

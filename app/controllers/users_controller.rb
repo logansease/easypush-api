@@ -1,7 +1,7 @@
 class UsersController < ApplicationController   
   
   
-  before_filter :authenticate, :except => [:show, :new, :create, :fb_signin]
+  before_filter :authenticate, :except => [:show, :new, :create, :fb_signin, :create_fb, :new_fb]
   before_filter :correct_user, :only => [:edit, :update]   
   before_filter :admin_user, :only => [:destroy]
   
@@ -75,12 +75,37 @@ class UsersController < ApplicationController
      redirect_to users_path, :flash => {:success => "User Deleted"}
   end
   
-  def fb_new
-    
+  def new_fb
+     @title = "Sign up" 
   end
   
-  def fb_create
-    
+  def create_fb
+      encoded_sig, payload = params[:signed_request].split('.')
+      if(encoded_sig && payload )
+        
+        sig = base64_url_decode(encoded_sig).unpack("H*")[0]
+        data = JSON.parse base64_url_decode(payload)
+       # if(data['registration'] && data['user_id'])
+          random_password = generated_password
+          existing_user = User.find_by_email( data['registration']['email'])
+          if(!existing_user)
+            user = User.create!(:name => data['registration']['name'], :email => data['registration']['email'], 
+                        :fb_user_id => data['user_id'], :password => random_password, 
+                        :password_confirmation => random_password)
+            sign_in(user)
+            redirect_to user
+          else
+            if valid_facebook_cookie_for_facebook_id? data['user_id'], params[:signed_request]
+             existing_user.update_attributes!(:fb_user_id => data['user_id'], :password => "foobar", :password_confirmation => "foobar")
+
+              sign_in(existing_user)
+              redirect_to existing_user         
+            end
+          #end
+        end
+        return
+      end    
+      redirect_to root_path
   end
   
   private

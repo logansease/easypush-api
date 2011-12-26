@@ -80,37 +80,109 @@ describe UsersController do
   end
   
   describe "get fb_new" do
-    it "should be successful" 
+    it "should be successful" do
+      get :new_fb
+      response.should be_successful
+    end
       
-    it "should have the right title" 
+    it "should have the right title" do
+      get :new_fb
+      response.should have_selector('title', :content => "Sign up")
+    end
       
+    it "should have a facebook registration form" do
+      get :new_fb
+      response.should have_selector("div.fb-registration")
+    end
   end
   
     
   describe "post fb_create" do
-     describe "failure" do
-                                                                                                       
-       it "should have the right title" 
-       
-       it "should render the new page"  
-
-       it "should not create a user" 
     
+     describe "failure" do
        
+       before(:each) do
+          @user = Factory(:user, :fb_user_id => nil)  
+          @signed_request = 'fa'      
+      end
+                                                                                                            
+       it "should redirect to the root path" do
+         post :create_fb, :signed_request => @signed_request
+         response.should redirect_to root_path
+         
+       end  
+
+       it "should not create a user" do
+         lambda do
+          post :create_fb, :signed_request => @signed_request
+         end.should_not change(User, :count)
+       end
+       
+       it "should not sign the user in" do
+          post :create_fb, :signed_request => @signed_request
+          controller.should_not be_signed_in
+       end   
      end  
      
      describe "success" do
+       before(:each) do
+          @user = Factory(:user)  
+          @fb_id = @user.fb_user_id
+          @user.fb_user_id = nil
+          @user.save!
+          #@params = { "registration" => { "name" => @user.name, "email" => @user.email }, "user_id" => @fb_id  }
+          @signed_request = '5L_A1ZVopgS9j18eu2r0Q-95IWmjnpDZ7yQMfRYCbIU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjAsImlzc3VlZF9hdCI6MTMyNDg2NjEzMywib2F1dGhfdG9rZW4iOiJBQUFDanN5UnAyR29CQUlaQ05qRmFxeTZkY1pDWkNaQWtNajFnRWZqSlE4eVU4UmRjMmR1WkN6ZE5URFh6MlpBQjJMNnllNmdENGxSbW1qY3paQ2FOTVAxYkc4ZjBUZlNSYnNaRCIsInJlZ2lzdHJhdGlvbiI6eyJuYW1lIjoiTG9nYW4gU2Vhc2UiLCJlbWFpbCI6ImxvZ2Fuc2Vhc2VcdTAwNDB5YWhvby5jb20ifSwicmVnaXN0cmF0aW9uX21ldGFkYXRhIjp7ImZpZWxkcyI6Ilt7J25hbWUnOiduYW1lJ30sIHsnbmFtZSc6J2VtYWlsJ31dIn0sInVzZXIiOnsiY291bnRyeSI6InVzIiwibG9jYWxlIjoiZW5fVVMifSwidXNlcl9pZCI6IjYyMDYxOTcifQ'      
+       end       
+              
                 
-       it "should create a user linked to a fb account" 
-
-            
-       it "should redirect to user show page" 
-  
+       it "should create a user linked to a fb account" do
+          lambda do
+            post :create_fb, :signed_request => @signed_request#, :data => @params}
+         end.should change(User, :count).by(1)
+       end  
        
        it "should have a welcome message" 
 
-       it "should sign the user in" 
+       it "should sign the user in" do
+         post :create_fb, :signed_request => @signed_request
+         controller.should be_signed_in
+       end
     end
+    
+    describe "success when email is taken" do
+      
+       before(:each) do
+          @user = Factory(:user, :email => "logansease@yahoo.com", :fb_user_id => nil)  
+          @fb_id = 6206197
+          @signed_request = '5L_A1ZVopgS9j18eu2r0Q-95IWmjnpDZ7yQMfRYCbIU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjAsImlzc3VlZF9hdCI6MTMyNDg2NjEzMywib2F1dGhfdG9rZW4iOiJBQUFDanN5UnAyR29CQUlaQ05qRmFxeTZkY1pDWkNaQWtNajFnRWZqSlE4eVU4UmRjMmR1WkN6ZE5URFh6MlpBQjJMNnllNmdENGxSbW1qY3paQ2FOTVAxYkc4ZjBUZlNSYnNaRCIsInJlZ2lzdHJhdGlvbiI6eyJuYW1lIjoiTG9nYW4gU2Vhc2UiLCJlbWFpbCI6ImxvZ2Fuc2Vhc2VcdTAwNDB5YWhvby5jb20ifSwicmVnaXN0cmF0aW9uX21ldGFkYXRhIjp7ImZpZWxkcyI6Ilt7J25hbWUnOiduYW1lJ30sIHsnbmFtZSc6J2VtYWlsJ31dIn0sInVzZXIiOnsiY291bnRyeSI6InVzIiwibG9jYWxlIjoiZW5fVVMifSwidXNlcl9pZCI6IjYyMDYxOTcifQ'      
+      end     
+      
+      it "should link to the user with the email specified" do
+        post :create_fb, :signed_request => @signed_request
+        @user.reload
+        @user.fb_user_id.should == @fb_id
+      end
+      
+      it "should sign the user in" do
+         post :create_fb, :signed_request => @signed_request
+         controller.should be_signed_in
+         controller.current_user.should == @user
+      end
+      
+      it "should not create a new user" do
+        lambda do 
+          post :create_fb, :signed_request => @signed_request        
+        end.should_not change(User, :count)
+      end
+      it "should not change the users password" do
+        password = @user.encrypted_password
+        post :create_fb, :signed_request => @signed_request 
+        @user.reload
+        password.should == @user.encrypted_password
+      end
+      
+    end
+    
   end
   
 

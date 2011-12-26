@@ -106,7 +106,7 @@ describe SessionsController do
         
       it "should redirect to the root path" do
         request.cookies['fbsr_179989805389930'] = ""
-        post :fb_signin, :fb_id => 0
+        post :fb_signin, :fb_id => @user.fb_user_id
         response.should redirect_to root_path
       end
     end
@@ -120,7 +120,13 @@ describe SessionsController do
         controller.should_not be_signed_in        
       end
       
-      it "should redirect to the fb registration page" 
+      it "should redirect to the fb registration page" do
+        fb_id = @user.fb_user_id
+        @user.fb_user_id = nil
+        @user.save!
+        post :fb_signin, :fb_id => fb_id  
+        response.should render_template "users/new_fb"      
+      end
     end
   end
 

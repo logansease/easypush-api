@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
             return
           end
         else
+          render "users/new_fb"
+          return
           #redirect to fb_register page, set @fb_id, access token
         end
     end

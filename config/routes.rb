@@ -12,8 +12,8 @@ SampleApp::Application.routes.draw do
       get :following, :followers       #makes users/1/following and following_user_path
     end
     collection do
-      post :fb_create
-      get :fb_new
+      post :create_fb
+      get :new_fb
     end
   end
   
