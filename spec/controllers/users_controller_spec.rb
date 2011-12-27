@@ -524,20 +524,20 @@ describe UsersController do
     
   end
   
-  describe "post fb_link action" do
+  describe "post fb_unlink action" do
     describe "unlinking" do
       before (:each) do
         @user = test_sign_in(Factory(:user))
       end
       
       it "should unlink the fb user" do
-        post :fb_link, {  :id => @user, :fb_user_id => ""}
+        post :fb_unlink, {  :id => @user, :fb_user_id => ""}
         @user.reload
         @user.fb_user_id.should be_nil
       end
       
       it "should redirect to the edit page" do
-        post :fb_link, {  :id => @user, :fb_user_id => ""}
+        post :fb_unlink, {  :id => @user, :fb_user_id => ""}
         response.should redirect_to(edit_user_path)
       end
     end
@@ -548,13 +548,13 @@ describe UsersController do
       end
       
       it "should unlink the fb user" do
-        post :fb_link, {  :id => @user, :fb_user_id => "1"}
+        post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
         @user.reload
         @user.fb_user_id.should == 1
       end
       
       it "should redirect to the edit page" do
-        post :fb_link, {  :id => @user, :fb_user_id => "1"}
+        post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
         response.should redirect_to(edit_user_path)
       end
     end

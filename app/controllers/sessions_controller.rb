@@ -7,31 +7,30 @@ class SessionsController < ApplicationController
   end  
   
   def fb_signin
-    if params[:fb_id] != nil
-      
+    if params[:redirect_to]
+      store_location params[:redirect_to]  
+    end
+    
+      if valid_facebook_cookie_or_signed_request?(params[:signed_request])
+       
         #if the user is signed in, then link the user with the given account
         if signed_in?
-          if !User.find_by_fb_user_id(params[:fb_id]) && current_user.fb_user_id.nil? && 
-                   valid_facebook_cookie_for_facebook_id?(params[:fb_id])
-                   
-            current_user.update_attribute(:fb_user_id, params[:fb_id])
+          if !User.find_by_fb_user_id(@fb_id) && current_user.fb_user_id.nil? &&                   
+            current_user.update_attribute(:fb_user_id, @fb_id)
             current_user.reload
-            @user = current_user
-        
+            @user = current_user       
           end
           #for some reason unable to redirect to user edit page
-          redirect_to current_user
+          redirect_back_or(current_user)
           return 
         end
       
         #if a user is existing with the fb_id, sign that user in
-        if user = User.find_by_fb_user_id(params[:fb_id])
-          if valid_facebook_cookie_for_facebook_id?(params[:fb_id])
+        if user = User.find_by_fb_user_id(@fb_id)
             sign_in(user)
             @fb_access_token = params[:access_token]
-            redirect_to user
+            redirect_back_or(current_user)
             return
-          end
           
         #if no user is found with the fb_id, then allow the user to register with fb
         else

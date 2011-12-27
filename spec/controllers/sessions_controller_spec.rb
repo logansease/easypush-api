@@ -87,36 +87,37 @@ describe SessionsController do
       end
       
       it "should link the current user with the fb user" do
-        post :fb_signin, :fb_id => @fb_user_id
+        post :fb_signin
         controller.should be_signed_in
         controller.current_user.fb_user_id.should == @fb_user_id
       end
       
      it "should redirect to the edit user path" do
-        post :fb_signin, :fb_id => @fb_user_id
+        post :fb_signin
         response.should redirect_to @user
       end
     end
     
     describe "success" do
       it "should log the user in when user with fb_id found with a valid cookie" do
-        post :fb_signin, :fb_id => @user.fb_user_id
+        post :fb_signin
         controller.should be_signed_in
         controller.current_user.should == @user
       end
       
       it "should redirect to user show page" do
-        post :fb_signin, :fb_id => @user.fb_user_id
+        post :fb_signin
          response.should redirect_to(user_path(@user))
+      end
+      
+      it "should redirect to the specified redirect page" do
+        post :fb_signin, :redirect_to => "/users"
+        response.should redirect_to(users_path)
       end
       
     end
     
     describe "failure" do
-      it "should not log a user in with out proper params" do
-        post :fb_signin, :fb_id => 0
-        controller.should_not be_signed_in
-      end
       
       it "should not log a user in with an invalid cookie" do
         request.cookies['fbsr_179989805389930'] = ""

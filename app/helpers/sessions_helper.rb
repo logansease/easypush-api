@@ -62,8 +62,8 @@ module SessionsHelper
   end  
              
   #TODO method comments
-  def store_location
-      session[:return_to] = request.fullpath   
+  def store_location(path = request.fullpath)
+      session[:return_to] = path  
     end   
     
     def current_user?(user) 
@@ -77,7 +77,7 @@ module SessionsHelper
     end
     
 
-  def valid_facebook_cookie_for_facebook_id?(fb_id, signed_request = nil) 
+  def valid_facebook_cookie_or_signed_request?(signed_request = nil) 
 
     if(!signed_request)
       signed_request = cookies["fbsr_179989805389930"]
@@ -104,7 +104,7 @@ module SessionsHelper
         return false
       end
       
-      return data['user_id'] == fb_id.to_s 
+      @fb_id = data['user_id']
     end
   end
   

@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     end
   end     
   
-  def fb_link
+  def fb_unlink
     @user = User.find_by_id(current_user.id)
     @user.update_attribute(:fb_user_id, params[:fb_user_id])
     @user.reload
@@ -103,8 +103,8 @@ class UsersController < ApplicationController
             sign_in(user)
             redirect_to user
           else
-            if valid_facebook_cookie_for_facebook_id? data['user_id'], params[:signed_request]
-              existing_user.update_attribute(:fb_user_id,data['user_id'])
+            if valid_facebook_cookie_or_signed_request? params[:signed_request]
+              existing_user.update_attribute(:fb_user_id, @fb_id)
               sign_in(existing_user)
               redirect_to existing_user         
             end
