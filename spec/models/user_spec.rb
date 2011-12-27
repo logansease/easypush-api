@@ -181,9 +181,20 @@ describe User do
       @user.should respond_to(:fb_user_id)
     end
     
-    it "should be able to link to a new fb user" 
+    it "should be able to link to a new fb user" do
+      @user.fb_user_id = 1
+      @user.save!
+      @user.reload
+      @user.fb_user_id.should == 1;
+    end
     
-    it "should be able to unlink from a fb user" 
+    it "should be able to unlink from a fb user" do
+      @user.fb_user_id = 1
+      @user.save!
+      @user.fb_user_id = nil
+      @user.save!
+      @user.fb_user_id.should  be_nil
+    end
     
   end
   

@@ -9,6 +9,7 @@ SampleApp::Application.routes.draw do
   
   resources :users do
     member do
+      post :fb_unlink
       get :following, :followers       #makes users/1/following and following_user_path
     end
     collection do

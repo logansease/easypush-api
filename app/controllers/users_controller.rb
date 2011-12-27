@@ -43,6 +43,14 @@ class UsersController < ApplicationController
     end
   end     
   
+  def fb_link
+    @user = User.find_by_id(current_user.id)
+    @user.update_attribute(:fb_user_id, params[:fb_user_id])
+    @user.reload
+    current_user.reload
+    redirect_to edit_user_path
+  end
+  
   def edit
      @title = "Edit user" 
      #note this assignment isnt needed since it is also called in the pre-filter         
@@ -96,8 +104,7 @@ class UsersController < ApplicationController
             redirect_to user
           else
             if valid_facebook_cookie_for_facebook_id? data['user_id'], params[:signed_request]
-             existing_user.update_attributes!(:fb_user_id => data['user_id'], :password => "foobar", :password_confirmation => "foobar")
-
+              existing_user.update_attribute(:fb_user_id,data['user_id'])
               sign_in(existing_user)
               redirect_to existing_user         
             end

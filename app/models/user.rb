@@ -15,8 +15,8 @@
 #
 
 class User < ActiveRecord::Base      
-  attr_accessor   :password   #defines new getter and setter
-  attr_accessible :name, :email, :password, :password_confirmation, :fb_user_id  
+  attr_accessor  :password  #defines new getter and setter
+  attr_accessible :name, :email, :password, :password_confirmation, :fb_user_id
   
   has_many :microposts, :dependent => :destroy  
   has_many :relationships, :dependent => :destroy,
@@ -82,7 +82,9 @@ class User < ActiveRecord::Base
   
     def encrypt_password      
        self.salt = make_salt if new_record?
-       self.encrypted_password = encrypt(self.password)
+       if(self.password && !password.blank?)
+        self.encrypted_password = encrypt(self.password)
+       end
     end        
     
     def encrypt(string)
