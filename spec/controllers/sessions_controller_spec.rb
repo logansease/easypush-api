@@ -68,7 +68,14 @@ describe SessionsController do
           delete :destroy
           controller.should_not be_signed_in
           response.should redirect_to(root_path)
-     end                              
+     end
+
+    it "should clear the fb session variable" do
+          test_sign_in(Factory(:user)) #def in spec_helper
+          session[:fb_session_token] = "12312"
+          delete :destroy
+          session[:fb_session_token].should be_nil
+    end
   end
   
   describe "post to fb_log_in" do
@@ -84,6 +91,7 @@ describe SessionsController do
         @fb_user_id = @user.fb_user_id
         @user.update_attribute(:fb_user_id, nil)
         @user.reload
+        @token = "4123"
       end
       
       it "should link the current user with the fb user" do
@@ -113,6 +121,11 @@ describe SessionsController do
       it "should redirect to the specified redirect page" do
         post :fb_signin, :redirect_to => "/users"
         response.should redirect_to(users_path)
+      end
+
+      it "should set the access token" do
+        post :fb_signin, :access_token => @token
+        controller.fb_access_token.should == @token
       end
       
     end

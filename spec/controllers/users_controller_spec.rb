@@ -131,7 +131,8 @@ describe UsersController do
           @user.save!
           #@params = { "registration" => { "name" => @user.name, "email" => @user.email }, "user_id" => @fb_id  }
           @signed_request = '5L_A1ZVopgS9j18eu2r0Q-95IWmjnpDZ7yQMfRYCbIU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjAsImlzc3VlZF9hdCI6MTMyNDg2NjEzMywib2F1dGhfdG9rZW4iOiJBQUFDanN5UnAyR29CQUlaQ05qRmFxeTZkY1pDWkNaQWtNajFnRWZqSlE4eVU4UmRjMmR1WkN6ZE5URFh6MlpBQjJMNnllNmdENGxSbW1qY3paQ2FOTVAxYkc4ZjBUZlNSYnNaRCIsInJlZ2lzdHJhdGlvbiI6eyJuYW1lIjoiTG9nYW4gU2Vhc2UiLCJlbWFpbCI6ImxvZ2Fuc2Vhc2VcdTAwNDB5YWhvby5jb20ifSwicmVnaXN0cmF0aW9uX21ldGFkYXRhIjp7ImZpZWxkcyI6Ilt7J25hbWUnOiduYW1lJ30sIHsnbmFtZSc6J2VtYWlsJ31dIn0sInVzZXIiOnsiY291bnRyeSI6InVzIiwibG9jYWxlIjoiZW5fVVMifSwidXNlcl9pZCI6IjYyMDYxOTcifQ'      
-       end       
+          @token = 'AAACjsyRp2GoBAIZCNjFaqy6dcZCZCZAkMj1gEfjJQ8yU8Rdc2duZCzdNTDXz2ZAB2L6ye6gD4lRmmjczZCaNMP1bG8f0TfSRbsZD'
+       end
               
                 
        it "should create a user linked to a fb account" do
@@ -146,6 +147,12 @@ describe UsersController do
          post :create_fb, :signed_request => @signed_request
          controller.should be_signed_in
        end
+
+       it "should store the access token to the controller" do
+          post :create_fb, :signed_request => @signed_request
+         controller.fb_access_token.should == @token
+       end
+
     end
     
     describe "success when email is taken" do
@@ -166,6 +173,11 @@ describe UsersController do
          post :create_fb, :signed_request => @signed_request
          controller.should be_signed_in
          controller.current_user.should == @user
+      end
+
+      it "should set the access token" do
+         post :create_fb, :signed_request => @signed_request
+        controller.fb_access_token.should == @token
       end
       
       it "should not create a new user" do
@@ -540,6 +552,12 @@ describe UsersController do
         post :fb_unlink, {  :id => @user, :fb_user_id => ""}
         response.should redirect_to(edit_user_path)
       end
+
+      it "should clear the fb access token" do
+        session[:fb_access_token] = "12312"
+        post :fb_unlink, {  :id => @user, :fb_user_id => ""}
+        session[:fb_access_token].should be_nil
+      end
     end
     
     describe "linking" do
@@ -547,7 +565,7 @@ describe UsersController do
         @user = test_sign_in(Factory(:user, :fb_user_id => nil))
       end
       
-      it "should unlink the fb user" do
+      it "should link the fb user" do
         post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
         @user.reload
         @user.fb_user_id.should == 1

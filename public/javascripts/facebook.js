@@ -22,7 +22,7 @@
        				 hiddenField2.setAttribute("type", "hidden");
        				 hiddenField2.setAttribute("name", "access_token");
        				 hiddenField2.setAttribute("value", response.authResponse.accessToken);
-       				 form.appendChild(hiddenField2);   			
+       				 form.appendChild(hiddenField2);
    			
     			document.body.appendChild(form);
     			form.submit();

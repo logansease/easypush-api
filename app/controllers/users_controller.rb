@@ -1,7 +1,7 @@
 class UsersController < ApplicationController   
   
   
-  before_filter :authenticate, :except => [:show, :new, :create, :fb_signin, :create_fb, :new_fb]
+  before_filter :authenticate, :except => [:show, :new, :create, :create_fb, :new_fb]
   before_filter :correct_user, :only => [:edit, :update]   
   before_filter :admin_user, :only => [:destroy]
   
@@ -47,6 +47,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(current_user.id)
     @user.update_attribute(:fb_user_id, params[:fb_user_id])
     @user.reload
+    set_access_token nil
     current_user.reload
     redirect_to edit_user_path
   end
@@ -90,25 +91,24 @@ class UsersController < ApplicationController
   def create_fb
       encoded_sig, payload = params[:signed_request].split('.')
       if(encoded_sig && payload )
-        
         sig = base64_url_decode(encoded_sig).unpack("H*")[0]
         data = JSON.parse base64_url_decode(payload)
-       # if(data['registration'] && data['user_id'])
           random_password = generated_password
           existing_user = User.find_by_email( data['registration']['email'])
           if(!existing_user)
             user = User.create!(:name => data['registration']['name'], :email => data['registration']['email'], 
                         :fb_user_id => data['user_id'], :password => random_password, 
                         :password_confirmation => random_password)
+            set_access_token data['oauth_token']
             sign_in(user)
             redirect_to user
           else
             if valid_facebook_cookie_or_signed_request? params[:signed_request]
               existing_user.update_attribute(:fb_user_id, @fb_id)
+              set_access_token params[:access_token]
               sign_in(existing_user)
               redirect_to existing_user         
             end
-          #end
         end
         return
       end    
@@ -116,8 +116,6 @@ class UsersController < ApplicationController
   end
   
   private
-  
-    
   
   def correct_user     
      @user = User.find(params[:id]) 

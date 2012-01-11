@@ -4,19 +4,10 @@ require 'rails'
 
 
 
-module SessionsHelper   
-  
-  @fb_app_id = "179989805389930" # YOUR FACEBOOK APP ID
-  @fb_app_secret = "bb18cde894bb67f6bead01fb16911a7c" # YOUR FACEBOOK APP SECRET KEY
-  
-    
-  def fb_sign_in(fb_user_id)
-    #user = User.find_by_fb_user_id(fb_user_id);
-    user = User.find_by_id(1)
-    sign_in(user);
-  end
+module SessionsHelper
   
   def fb_user?(facebook_id)
+    reset_session
      user = User.find_by_fb_user_id(facebook_id);
      user != nil
   end
@@ -24,10 +15,18 @@ module SessionsHelper
   def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id, user.salt] 
     current_user = user
-  end  
+  end
+
+  def fb_access_token
+    session[:fb_access_token]
+  end
+
+  def set_access_token (token)
+    session[:fb_access_token] = token
+  end
   
   def current_user=(user)
-      @current_user = user
+    @current_user = user
   end
   
   def current_user    
@@ -35,8 +34,7 @@ module SessionsHelper
     #@current_user
      @current_user ||= user_from_remember_token
   end  
-  
-  #TODO Mark returns
+
   def signed_in?
      !current_user.nil?
   end    
@@ -44,6 +42,7 @@ module SessionsHelper
   def sign_out     
     cookies.delete(:remember_token)
      current_user =  nil
+    reset_session
   end                 
           
   def deny_access  

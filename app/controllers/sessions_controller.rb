@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
           if !User.find_by_fb_user_id(@fb_id) && current_user.fb_user_id.nil? &&                   
             current_user.update_attribute(:fb_user_id, @fb_id)
             current_user.reload
-            @user = current_user       
+            @user = current_user
+            set_access_token params[:access_token]
           end
           #for some reason unable to redirect to user edit page
           redirect_back_or(current_user)
@@ -27,8 +28,8 @@ class SessionsController < ApplicationController
       
         #if a user is existing with the fb_id, sign that user in
         if user = User.find_by_fb_user_id(@fb_id)
+            set_access_token params[:access_token]
             sign_in(user)
-            @fb_access_token = params[:access_token]
             redirect_back_or(current_user)
             return
           

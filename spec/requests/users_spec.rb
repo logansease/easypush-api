@@ -65,23 +65,30 @@ describe "Users" do
     
   end
   
-  describe "facebook sign in" do
-    describe "success" do
-      it "should sign the user in through the fb connect button and allow sign out" 
-        
+  describe "facebook functionality" do
+  
+    before(:each) do
+      #write cookie
+    end
+  
+    describe "facebook sign in" do
+      describe "success" do
+        it "should sign the user in through the fb connect button and allow sign out" 
+          
+      end
+      
+      describe "failure" do
+        it "should not sign the user in"
+      end
     end
     
-    describe "failure" do
-      it "should not sign the user in"
-    end
-  end
-  
-  describe "facebook register" do
-    describe "success" do
-      it "should make a new user"
-    end
-    describe "failure " do
-      it "should not make a new user"
+    describe "facebook register" do
+      describe "success" do
+        it "should make a new user"
+      end
+      describe "failure " do
+        it "should not make a new user"
+      end
     end
   end
   
