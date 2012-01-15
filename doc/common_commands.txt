@@ -12,6 +12,6 @@ rake db:populate
 rails generate migration add_admin_to_users \
 > admin:boolean
 
-rails generate model New_Model column:type 
+git_commands.txt
 
 tail -f logs/test.log

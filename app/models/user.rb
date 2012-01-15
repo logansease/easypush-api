@@ -26,7 +26,10 @@ class User < ActiveRecord::Base
                            :foreign_key => "followed_id",      
                            :class_name => "Relationship" #specify class / table since no rev rel table exists
                            
-                           
+  has_many :fb_connections, :dependent =>:destroy,
+            :foreign_key => "fbc_user_id"
+  has_many :fb_friends, :through => :fb_connections, :source => :fb_friends
+
   has_many :following, :through => :relationships, :source => :followed #must specify join column since otherwise it assumes singluar of following
   has_many :followers, :through => :reverse_relationships, :source => :follower 
   

@@ -1,6 +1,7 @@
 require 'base64'
 require 'openssl'
 require 'rails'
+require 'json'
 
 
 
@@ -111,7 +112,25 @@ module SessionsHelper
     #Digest::SHA1.hexdigest("--#{Time.now.to_s}----")[0,6]
     "aaaaaaa"
   end
-                                              
+
+  def create_user_fb_connections
+      #send request to https://graph.facebook.com/me/friends?session_token=
+      graph = Koala::Facebook::API.new(fb_access_token)
+      results = graph.get_connections('me', 'friends')
+
+      #for each id, insert to fb_friends, fb_id, id
+      results.each do |result|
+        FbConnection.create!(:fbc_user_id =>current_user.id, :fbc_fb_id => result["id"])
+      end
+
+     current_user.reload
+  end
+
+  def remove_user_fb_connections
+    FbConnection.destroy_all(:fbc_user_id =>current_user.id)
+     current_user.reload
+  end
+
   private 
   
     def user_from_remember_token   

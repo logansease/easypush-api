@@ -24,7 +24,8 @@ describe User do
      @attr = { :name => "Example User", 
                :email => "lsease@gmail.com", 
                :password => "password", 
-               :password_confirmation => "password"}
+               :password_confirmation => "password",
+               :fb_user_id => 1}
   end
   
   it "should create a new instance with valid attr" do
@@ -329,6 +330,37 @@ describe User do
         @followed.followers.should include(@user)
      end
      
+  end
+
+  describe "facebook friends" do
+      before (:each) do
+        @user = User.create!(@attr)
+        @fb_friend = Factory(:user, :email => Factory.next(:email), :fb_user_id => 2)
+        @fb_friend2 = Factory(:user, :email => Factory.next(:email), :fb_user_id => 3)
+        @fb_friend3 = Factory(:user, :email => Factory.next(:email), :fb_user_id => 4)
+        @fbConnection = FbConnection.create!(:fbc_user_id => @user.id, :fbc_fb_id => @fb_friend.fb_user_id)
+        @fbConnection2 = FbConnection.create!(:fbc_user_id => @user.id, :fbc_fb_id => @fb_friend2.fb_user_id)
+        @fbConnection3 = FbConnection.create!(:fbc_user_id => @fb_friend2.id, :fbc_fb_id => @fb_friend3.fb_user_id)
+      end
+
+    it "should have the connection object" do
+      @user.fb_connections.should include(@fbConnection)
+      @user.fb_connections.should include(@fbConnection2)
+      @user.fb_connections.should_not include(@fbConnection3)
+    end
+
+    it "should have valid friends" do
+      @user.fb_friends.should include(@fb_friend)
+      @user.fb_friends.should include(@fb_friend2)
+    end
+
+    it "should not contain invalid friend" do
+      @user.fb_friends.should_not include(@fb_friend3)
+    end
+
+    it "should be empty when the user has no friends" do
+      @fb_friend3.fb_friends.should be_empty
+    end
   end
   
 end

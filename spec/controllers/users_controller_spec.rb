@@ -102,7 +102,7 @@ describe UsersController do
        
        before(:each) do
           @user = Factory(:user, :fb_user_id => nil)  
-          @signed_request = 'fa'      
+          @signed_request = 'zabadreq'
       end
                                                                                                             
        it "should redirect to the root path" do
@@ -153,6 +153,11 @@ describe UsersController do
          controller.fb_access_token.should == @token
        end
 
+       it "should load the users facebook friends"  do
+         post :create_fb, :signed_request => @signed_request
+         controller.current_user.fb_connections.should_not be_empty
+       end
+
     end
     
     describe "success when email is taken" do
@@ -161,7 +166,8 @@ describe UsersController do
           @user = Factory(:user, :email => "logansease@yahoo.com", :fb_user_id => nil)  
           @fb_id = 6206197
           @signed_request = '5L_A1ZVopgS9j18eu2r0Q-95IWmjnpDZ7yQMfRYCbIU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjAsImlzc3VlZF9hdCI6MTMyNDg2NjEzMywib2F1dGhfdG9rZW4iOiJBQUFDanN5UnAyR29CQUlaQ05qRmFxeTZkY1pDWkNaQWtNajFnRWZqSlE4eVU4UmRjMmR1WkN6ZE5URFh6MlpBQjJMNnllNmdENGxSbW1qY3paQ2FOTVAxYkc4ZjBUZlNSYnNaRCIsInJlZ2lzdHJhdGlvbiI6eyJuYW1lIjoiTG9nYW4gU2Vhc2UiLCJlbWFpbCI6ImxvZ2Fuc2Vhc2VcdTAwNDB5YWhvby5jb20ifSwicmVnaXN0cmF0aW9uX21ldGFkYXRhIjp7ImZpZWxkcyI6Ilt7J25hbWUnOiduYW1lJ30sIHsnbmFtZSc6J2VtYWlsJ31dIn0sInVzZXIiOnsiY291bnRyeSI6InVzIiwibG9jYWxlIjoiZW5fVVMifSwidXNlcl9pZCI6IjYyMDYxOTcifQ'      
-      end     
+          @token =  "AAACjsyRp2GoBAIZCNjFaqy6dcZCZCZAkMj1gEfjJQ8yU8Rdc2duZCzdNTDXz2ZAB2L6ye6gD4lRmmjczZCaNMP1bG8f0TfSRbsZD"
+      end
       
       it "should link to the user with the email specified" do
         post :create_fb, :signed_request => @signed_request
@@ -175,9 +181,15 @@ describe UsersController do
          controller.current_user.should == @user
       end
 
+      it "should load the users facebook friends" do
+         post :create_fb, :signed_request => @signed_request
+        controller.current_user.fb_connections.should_not be_empty
+      end
+
       it "should set the access token" do
          post :create_fb, :signed_request => @signed_request
         controller.fb_access_token.should == @token
+
       end
       
       it "should not create a new user" do
@@ -539,7 +551,9 @@ describe UsersController do
   describe "post fb_unlink action" do
     describe "unlinking" do
       before (:each) do
-        @user = test_sign_in(Factory(:user))
+        @user = test_sign_in(Factory(:user, :fb_user_id =>1))
+        @user2 = Factory(:user, :email => Factory.next(:email), :fb_user_id =>21)
+        @fb_connection = FbConnection.create(:fbc_user_id =>@user.id, :fbc_fb_id => 21)
       end
       
       it "should unlink the fb user" do
@@ -558,6 +572,13 @@ describe UsersController do
         post :fb_unlink, {  :id => @user, :fb_user_id => ""}
         session[:fb_access_token].should be_nil
       end
+
+      it "should remove the users facebook friends" do
+        controller.current_user.fb_friends.should_not be_empty
+        post :fb_unlink, {  :id => @user, :fb_user_id => ""}
+        controller.current_user.fb_friends.should be_empty
+      end
+
     end
     
     describe "linking" do
@@ -565,16 +586,16 @@ describe UsersController do
         @user = test_sign_in(Factory(:user, :fb_user_id => nil))
       end
       
-      it "should link the fb user" do
-        post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
-        @user.reload
-        @user.fb_user_id.should == 1
-      end
+   #   it "should link the fb user" do
+   #     post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
+   #     @user.reload
+   #     @user.fb_user_id.should == 1
+   #  end
       
-      it "should redirect to the edit page" do
-        post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
-        response.should redirect_to(edit_user_path)
-      end
+   #   it "should redirect to the edit page" do
+   #     post :fb_unlink, {  :id => @user, :fb_user_id => "1"}
+   #     response.should redirect_to(edit_user_path)
+   #   end
     end
     
     
