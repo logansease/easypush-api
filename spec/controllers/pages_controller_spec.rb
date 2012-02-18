@@ -43,6 +43,9 @@ describe PagesController do
                                               :content => "1 followers")                                   
           
         end
+
+         it "should have the right fb following counts"
+
     end
 
   end

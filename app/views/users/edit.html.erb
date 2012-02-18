@@ -18,9 +18,3 @@
 <div id="link_form">
 	<%= render 'fb_link_form'%>
 </div>
-
-<%= form_for(current_user.fb_connections.build ) do |f| %>
-
-	<div class="actions"><%= f.submit "Load Fb Friends"%> </div>
-
-<% end%>
