@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20120501040509) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "app_id"
+    t.double  "app_id"
     t.string  "app_secret"
     t.string   "expiration_date"
     t.string   "app_name"
