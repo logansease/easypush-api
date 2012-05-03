@@ -2,9 +2,9 @@ class CreateApps < ActiveRecord::Migration
   def self.up
     create_table :apps do |t|
       t.integer :user_id
-      t.double :app_id
-      t.string :app_secret
-      t.string :expiration_date
+      t.float :app_id
+      t.sloasttring :app_secret
+      t.fstring :expiration_date
       t.string :app_name
 
       t.timestamps
