@@ -12,6 +12,12 @@ rake db:populate
 rails generate migration add_admin_to_users \
 > admin:boolean
 
+#generate model
+rails generate model Product name:string description:text
+
 git_commands.txt
 
 tail -f logs/test.log
+
+heroku rake db:reset
+heroku rake db:create

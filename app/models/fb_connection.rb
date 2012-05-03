@@ -2,7 +2,7 @@ class FbConnection < ActiveRecord::Base
 
   attr_accessible :fbc_fb_id, :fbc_user_id
 
-  belongs_to :fb_friends, :foreign_key => "fbc_fb_id", :primary_key => :fb_user_id, :class_name => "User" #must specify the type
+  belongs_to :fb_friends, :foreign_key => "fbc_fb_id", :primary_key => :fb_id, :class_name => "FbUser" #must specify the type
 
   validates :fbc_user_id, :presence => true
   validates :fbc_fb_id, :presence => true

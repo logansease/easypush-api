@@ -17,10 +17,17 @@ SampleApp::Application.routes.draw do
       get :new_fb
     end
   end
-  
+
+  resources :apps do
+    collection do
+      get :show_level
+      get :show_users
+    end
+  end
   resources :microposts, :only => [:create, :destroy] 
   resources :relationships, :only => [:create, :destroy]
   resources :fb_connections, :only => [:create, :destroy]
+
 
   root :to => "pages#home" 
   match '/signup', :to => 'users#new'
@@ -28,7 +35,10 @@ SampleApp::Application.routes.draw do
   match '/about', :to => 'pages#about'   
   match '/help', :to => 'pages#help'
   match '/signin', :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy' 
+  match '/signout', :to => 'sessions#destroy'
+
+  match '/api/save_score', :to => 'api#save_score'
+  match '/api/get_scores', :to => 'api#get_scores'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

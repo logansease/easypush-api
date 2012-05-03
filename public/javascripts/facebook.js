@@ -1,4 +1,4 @@
-	Fb_init();
+	//Fb_init();
     function Fb_Login() {
 		FB.login(function(response) {  
   			if (response.authResponse) {  

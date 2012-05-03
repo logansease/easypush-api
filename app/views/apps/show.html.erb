@@ -1,0 +1,35 @@
+
+<table class="profile" summary="App info">
+   <tr>  
+		<td class="main">
+            <h2><%= @app.app_name %></h2>
+         </td>
+            <% user = @app.user rescue User.find(@app.user_id)%>
+          	 <% if user == current_user%>
+          		<td class="delete">
+          			<%= button_to "delete", @app, :method => :delete,
+          											 :confirm => "Are you sure?",
+          											 :title => @app.app_name %>
+          		</td>
+         	  <% end %>
+    </tr>
+            <tr>
+            <td><b>App Id: </b> <%= @app.app_id %></td>
+            </tr>
+
+     <tr>
+            <td><b>Secret Key: </b> <%= @app.app_secret %></td>
+     </tr>
+
+    <tr><td> <%= link_to  'users', '/apps/show_users?app_id=' + @app.id.to_s  %></td></tr>
+
+        <% @levels.each do |l|%>
+         <tr>
+         <td><b>Level: </b> <%= link_to  l.level_id, '/apps/show_level?level_id=' + l.level_id + '&app_id=' + @app.id.to_s %></td> <br>
+         <td><b>Users: </b> <%= l.score_fb_id %> </td> <br>
+         <td><b>High Score: </b> <%= l.score %></td> <br><br>
+         </tr>
+              <%  end %>
+         
+
+</table>

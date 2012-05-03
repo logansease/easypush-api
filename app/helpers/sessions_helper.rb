@@ -109,8 +109,7 @@ module SessionsHelper
   end
   
   def generated_password
-    #Digest::SHA1.hexdigest("--#{Time.now.to_s}----")[0,6]
-    "aaaaaaa"
+    Digest::SHA1.hexdigest("--#{Time.now.to_s}----")[0,6]
   end
 
   def create_user_fb_connections

@@ -10,13 +10,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113042719) do
+ActiveRecord::Schema.define(:version => 20120501040509) do
+
+  create_table "apps", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "app_id"
+    t.string  "app_secret"
+    t.string   "expiration_date"
+    t.string   "app_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fb_connections", :force => true do |t|
     t.integer  "fbc_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "fbc_fb_id"
+  end
+
+  create_table "fb_users", :force => true do |t|
+    t.string   "name"
+    t.integer  "fb_id"
+    t.string   "email"
+    t.string    "token"
+    t.boolean  "unsubscribed", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "microposts", :force => true do |t|
@@ -28,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20120113042719) do
 
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
 
+  create_table "page_contents", :force => true do |t|
+    t.integer  "page_id"
+    t.text     "content_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -37,6 +64,15 @@ ActiveRecord::Schema.define(:version => 20120113042719) do
 
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "scores", :force => true do |t|
+    t.integer  "score_fb_id"
+    t.integer  "app_id"
+    t.string  "level_id"
+    t.float    "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

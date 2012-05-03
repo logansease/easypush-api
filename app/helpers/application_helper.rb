@@ -17,6 +17,34 @@ module ApplicationHelper
   def facebook_logo
        image_tag("facebook_logo.png", :alt => "Facebook login", :class => "logo", :width => 17, :height => 17)
   end
-  
-  
+
+  def encrypt(unencrypted, key)
+      c = OpenSSL::Cipher.new("aes-128-cbc")
+      c.encrypt
+      c.key = key
+      e = c.update(unencrypted)
+      e << c.final
+      return e
+  end
+
+  #def decrypt(encrypted_attr, key)
+  #    c = OpenSSL::Cipher::Cipher.new("aes-256-cbc")
+  #    c.decrypt
+  #    c.key = key
+  #    d = c.update(encrypted_attr)
+  #    #d << c.final
+  #    return d
+  #end
+  def decrypt( cipher, key )
+
+      aes = OpenSSL::Cipher::Cipher.new( "aes-128-cbc" ).decrypt
+      aes.iv = cipher.slice( 0, 16 )
+      # don't slice the SHA256 output for AES256
+      aes.key = ( Digest::SHA256.digest( key ) ).slice( 0, 16 )
+
+      cipher = cipher.slice( 16..-1 )
+
+      return aes.update( cipher ) + aes.final
+  end
 end
+
