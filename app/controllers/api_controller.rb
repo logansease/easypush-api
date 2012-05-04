@@ -46,7 +46,9 @@ class ApiController < ApplicationController
 
     if(the_score && the_score.any?)
       the_score = the_score.first
-      the_score.update_attributes(score_attrs)
+      if the_score.score > score
+        the_score.update_attributes(score_attrs)
+      end
     else
       the_score = Score.create(score_attrs)
     end
