@@ -4,15 +4,13 @@
 
 	<table class="front" summary="for signed in users">
 		   <tr>
-			<td>
-			   <h1 class="micropost">What's up?</h1>  
-			   <%= render 'shared/micropost_form'%> 
-				<%= render 'shared/shared_feed'%> 
-			</td> 
-			<td class="sidebar round">
-				<%= render "shared/sidebar_shared"%> 
-				<%= render "shared/stats"%>
-			</td>
+             <h2>Apps</h2>
+                      <%= link_to 'add new',new_app_path  %>
+                       <% if current_user.apps.any?%>
+                  			   <table class="microposts" summary="user microposts">
+                  				    <%= render current_user.apps%>
+                  				</table>
+                  	<%end%>
 		   </tr>
 	</table>
 
@@ -21,8 +19,10 @@
 
 
 
-<h1>Sample App</h1>
-<p>This is the home page for the <a href="http://railstutorial.org/">RoR</a></p>
+<h1>Social Scores API</h1>
+<p>This is the home page the Social Scores API. The social scores api is an easy way for developers to add Friend based, or "social" scoreboards into their mobile games.</p> 
+<p>The Social Scores API is the primary online scoreboard mechanism being incorporated into the upcoming game "unFed unDead!" currently in development by iParty! Mobile and set to release in June 2012.</p>
+<p>We are currently in a very early beta mode and are not open for business just yet. Sign up for an account and we'll email you when we are ready to get started.</p>
 
 <%= link_to "Sign up now!", signup_path, :class => "signup_button round"%>      
 
