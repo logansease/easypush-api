@@ -38,7 +38,7 @@ class ApiController < ApplicationController
     fb_user = FbUser.find_by_fb_id(fb_id)
     if(!fb_user)
       fb_user = FbUser.create(:token => token, :name => name, :fb_id => fb_id, :email => email)
-      create_user_fb_connections_for_user fb_user
+      create_user_fb_connections_for_fb_user fb_user
     end
 
     the_score = Score.where("score_fb_id = #{fb_id} and app_id = #{app.id} and level_id = '#{level_id}'")
