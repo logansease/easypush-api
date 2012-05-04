@@ -13,6 +13,10 @@ module ApplicationHelper
   def logo
        image_tag("logo.png", :alt => "Sample App", :class => "round")
   end
+
+  def iparty
+       image_tag("iparty.png", :alt => "Sample App", :class => "round")
+  end
   
   def facebook_logo
        image_tag("facebook_logo.png", :alt => "Facebook login", :class => "logo", :width => 17, :height => 17)
