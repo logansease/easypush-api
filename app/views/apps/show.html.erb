@@ -25,9 +25,9 @@
 
         <% @levels.each do |l|%>
          <tr>
-         <td><b>Level: </b> <%= link_to  l.level_id, '/apps/show_level?level_id=' + l.level_id + '&app_id=' + @app.id.to_s %></td> <br>
-         <td><b>Users: </b> <%= l.score_fb_id %> </td> <br>
-         <td><b>High Score: </b> <%= l.score %></td> <br><br>
+         <td><b>Level: </b> <%= link_to  l.level_id, '/apps/show_level?level_id=' + l.level_id + '&app_id=' + @app.id.to_s %></td>
+         <td><b>Users: </b> <%= l.score_fb_id %> </td>
+         <td><b>High Score: </b> <%= l.score %></td>
          </tr>
               <%  end %>
          
