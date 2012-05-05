@@ -39,6 +39,7 @@ SampleApp::Application.routes.draw do
 
   match '/api/save_score', :to => 'api#save_score'
   match '/api/get_scores', :to => 'api#get_scores'
+  match '/api/save_user', :to => 'api#save_user'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

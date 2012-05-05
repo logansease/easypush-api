@@ -4,9 +4,43 @@ class ApiController < ApplicationController
   include ApplicationHelper
   require 'cgi'
 
-  def save_score
 
-    #TODO get decryption working correctly
+  def save_user
+
+    app_id_param = params[:app_id]
+    app = App.find_by_app_id(app_id_param)
+
+
+    encoded64 = params[:data]
+    encoded = Base64.decode64(encoded64 )
+
+    data = decrypt(encoded, app.app_secret)
+
+    parsed_json = ActiveSupport::JSON.decode(data)
+
+    app_id = parsed_json['app_id']
+    token = parsed_json['token']
+
+    if(app_id.to_s != app_id_param)
+      render :json => {:result => "error app Ids dont match #{app_id.to_is} != #{app_id_param}"}
+      return
+    end
+
+    graph = Koala::Facebook::API.new(token)
+        results = graph.get_object("me")
+        name = results["name"]
+        fb_id = results["id"]
+        email = results["email"]
+
+        fb_user = FbUser.find_by_fb_id(fb_id)
+        if(!fb_user)
+          fb_user = FbUser.create(:token => token, :name => name, :fb_id => fb_id, :email => email)
+          create_user_fb_connections_for_fb_user fb_user
+        end
+
+  end
+
+  def save_score
 
     app_id_param = params[:app_id]
     app = App.find_by_app_id(app_id_param)
