@@ -81,7 +81,7 @@ class ApiController < ApplicationController
 
     if(the_score && the_score.any?)
       the_score = the_score.first
-      if the_score.score > score
+      if the_score.score < score
         the_score.update_attributes(score_attrs)
       end
     else
