@@ -97,18 +97,20 @@ class ApiController < ApplicationController
 
       conditions = "app_id = #{app.id} and level_id = '#{params[:level_id]}'"
 
-      if(params[:fb_id])
-        conditions = conditions + " and (score_fb_id in ( select fbc_fb_id from fb_connections where fbc_user_id = #{params[:fb_id]} ) or score_fb_id = #{params[:fb_id]})"
-      end
-
       limit = 1000
       if(params[:limit])
-         limit = params[:limit]
+           limit = params[:limit]
+      end
+
+      fb_results = ""
+      if(params[:fb_id])
+        fb_conditions = " and (score_fb_id in ( select fbc_fb_id from fb_connections where fbc_user_id = #{params[:fb_id]} ) or score_fb_id = #{params[:fb_id]})"
+        fb_results = Score.joins(:fb_user).select("scores.*, name").where(conditions + fb_conditions).limit(limit)
       end
 
       results = Score.joins(:fb_user).select("scores.*, name").where(conditions).limit(limit)
 
-      render :json => results
+      render :json => {:fb_scores => fb_results, :scores => results}
   end
 
 end
