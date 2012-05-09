@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_fb_unlink.html.erb" afterPath="$PROJECT_DIR$/app/views/users/_fb_unlink.html.erb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,7 +67,7 @@
       <file leaf-file-name="home.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="59" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.6541787">
+            <state line="22" column="48" selection-start="573" selection-end="573" vertical-scroll-proportion="0.52449566">
               <folding />
             </state>
           </provider>
@@ -1076,7 +1075,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="59" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.6541787">
+        <state line="22" column="48" selection-start="573" selection-end="573" vertical-scroll-proportion="0.52449566">
           <folding />
         </state>
       </provider>
