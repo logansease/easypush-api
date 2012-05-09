@@ -1,0 +1,59 @@
+
+<div class="box">
+<h1>Getting Started - iOS Setup</h1>
+<h3>Step 1-  Download the iOS API Sample app</h3>
+<p><%= link_to 'Beta version 1.0', 'files/SocialScoresExample-beta1.0.zip' %></p>
+
+<h3>Step 2-  Extract and open the sample app</h3>
+<h3>Step 3-  Copy Dependant Libraries</h3>
+<p>Drag and drop the following folders from the sample app into your project</p>
+<ul>
+  <li>Facebook</li>
+  <li>ASIHTTP</li>
+  <li>SBJSON</li>
+  <li>Reachability</li>
+</ul>
+<h3>Step 4-  Copy Social Scores Files</h3>
+<p>Drag and drop the files in the SocialScores folder from the sample project.</p>
+<h3>Step 5-  Link Required Frameworks</h3>
+<p>Add the following frameworks to your project</p>
+<ul>
+  <li>libSocialScores.a -- from the sample app</li>
+  <li>MobileCoreServices</li>
+  <li>CFNetwork</li>
+  <li>libz.dylib</li>
+  <li>SystemConfiguration</li>
+  <li>MessageUI</li>
+  <li>Security</li>
+</ul>
+
+<h3>Step 6-  Set up Facebook App</h3>
+<p>Go to facebook.com/developers and register a new app.</p>
+<p>In your project, open MyFacebookManager.h and add the app ID and Secret Key for your app. Also set the link and picture URLs you'd like to use when a user makes a posting on facebook with the API.</p>
+
+<h3>Step 7-  Set up Social Scores App</h3>
+<p>Register at socialscoresapi.com. Create a new app.</p>
+<p>In your project, open SocialScoresManager.h and add the app ID and secret Key for your app.</p>
+
+<h3>You're ready to go!</h3>
+
+</div>
+
+<div class="box">
+  <h1>Getting Started - Use it</h1>
+  <h3>Show the Settings Controller</h3>
+  <p>I have included a settings view controller to include in your project to allow the user to log in to facebook and to enable the Social Scores api.</p>
+  <p>You can use this by simply pushing the provided SettingsController on a button press.</p>
+
+  <h3>After a level is completed, call the API.</h3>
+  <div class="code"> -(void) onLevelComplete{<br>
+     SocialScoresManager * scoreManager = [SocialScoresManager sharedManager]; <br>
+           NSDictionary * options = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self, [NSNumber numberWithInt:score], nil] forKeys:[NSArray arrayWithObjects:@"viewController",@"score", nil]]; <br>
+    [scoreManager showTopScoresForLevel:@"Level 1" withOptions:options]; <br>
+    }
+  </div>
+  <p>This will save the player's score, and display a leader board for this level. The player will be able to see how their score ranks amongst their friends or the whole community. They will be able to share the scoreboard on their facebook wall.</p>
+
+
+
+</div>

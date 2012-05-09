@@ -31,11 +31,12 @@ SampleApp::Application.routes.draw do
 
   root :to => "pages#home" 
   match '/signup', :to => 'users#new'
-  match '/contact', :to => 'pages#contact'
+  match '/get_started', :to => 'pages#doc'
   match '/about', :to => 'pages#about'   
   match '/help', :to => 'pages#help'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/contact', :to => 'pages#contact'
 
   match '/api/save_score', :to => 'api#save_score'
   match '/api/get_scores', :to => 'api#get_scores'

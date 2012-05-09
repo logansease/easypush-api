@@ -21,4 +21,8 @@ class PagesController < ApplicationController
     @title = "Help" 
   end
 
+  def doc
+
+  end
+
 end
