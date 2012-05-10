@@ -298,3 +298,60 @@ margin:1em 0 1em 0;
 line-height:17px;
 font-weight:normal!important;
 }
+
+/* css/code.css */
+
+
+ div.code-box-n,
+ div.code-box {
+  font-family: 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Monaco, Courier, monospace;
+  white-space: pre;
+  width: 100%;
+  line-height: 1.4em;
+  margin: 1em 0;
+  border: 1px dashed #aaa8a8;
+  padding: 0.5em 0 0.3em 0.5em;
+  font-size: 90%;
+  color: #000;
+  overflow: auto;
+}
+
+ div.code-box {
+  background: #fff url(/img/cut.gif) no-repeat top right;
+}
+
+ div.code-box-n {
+  width: 33em;
+  padding-left: 0.3em;
+  border: 1px solid;
+  border-color: #666 #999;
+  background-color: #fff;
+}
+
+ div.code-box-n:hover {
+  border-color: #c30;
+}
+
+ div.code-box-n a { font-weight: normal; }
+ div.code-box-n a:focus,
+ div.code-box-n a:hover {
+  border-bottom: 1px solid #c00;
+}
+
+/* home page -- server uptime */
+
+ div.uptime {
+  white-space: pre;
+  width: 36em;
+  line-height: 1em;
+  margin: 1em 0;
+  border: 1px dotted #aaa8a8;
+  padding: 4px 0 4px 7px;
+  background-color: #fff;
+  overflow: auto;
+}
+
+ div.uptime code {
+  font-size: 100%;
+  color: #000;
+}
