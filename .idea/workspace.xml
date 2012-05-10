@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/docs/hierarchy.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/docs/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/files/SocialScoresExample-beta1.0.zip" afterPath="$PROJECT_DIR$/public/files/SocialScoresExample-beta1.0.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/doc.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/doc.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/custom.css" afterPath="$PROJECT_DIR$/public/stylesheets/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/about.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/about.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,15 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="contact.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/pages/contact.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="71" selection-start="91" selection-end="91" vertical-scroll-proportion="-0.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/docs/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,6 +83,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="about.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/pages/about.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="75" selection-start="942" selection-end="942" vertical-scroll-proportion="-6.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="58" selection-start="1440" selection-end="1440" vertical-scroll-proportion="0.7618214">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="custom.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,19 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doc.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="doc.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/pages/doc.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="23" selection-start="1875" selection-end="1875" vertical-scroll-proportion="0.60595447">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="49" column="23" selection-start="1875" selection-end="1875" vertical-scroll-proportion="-30.625">
               <folding />
             </state>
           </provider>
@@ -137,13 +132,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/pages/about.html.erb" />
         <option value="$PROJECT_DIR$/public/javascripts/facebook.js" />
         <option value="$PROJECT_DIR$/app/helpers/sessions_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_fb.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/_fb_unlink.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/pages/home.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/help.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/contact.html.erb" />
         <option value="$PROJECT_DIR$/public/docs/hierarchy.html" />
@@ -153,6 +146,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/app/views/pages/doc.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/pages/about.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/pages/home.html.erb" />
       </list>
     </option>
   </component>
@@ -917,18 +912,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/users/_fb_unlink.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="48" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/help.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="71" selection-start="736" selection-end="736" vertical-scroll-proportion="0.0">
@@ -977,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/docs/Classes/SocialScoresManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="67" selection-start="727" selection-end="727" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/docs/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="30" selection-start="935" selection-end="935" vertical-scroll-proportion="-15.0">
@@ -998,13 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="57" selection-start="286" selection-end="286" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="308" column="12" selection-start="4213" selection-end="4213" vertical-scroll-proportion="0.0">
@@ -1014,7 +983,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/doc.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="23" selection-start="1875" selection-end="1875" vertical-scroll-proportion="0.60595447">
+        <state line="49" column="23" selection-start="1875" selection-end="1875" vertical-scroll-proportion="-30.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/docs/Classes/SocialScoresManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="67" selection-start="727" selection-end="727" vertical-scroll-proportion="-9.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="57" selection-start="286" selection-end="286" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/about.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="75" selection-start="942" selection-end="942" vertical-scroll-proportion="-6.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="58" selection-start="1440" selection-end="1440" vertical-scroll-proportion="0.7618214">
           <folding />
         </state>
       </provider>
