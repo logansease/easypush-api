@@ -1,7 +1,10 @@
 class UsersController < ApplicationController   
+
+  require 'socket'
+  include ApplicationHelper
+  require 'cgi'
   
-  
-  before_filter :authenticate, :except => [:show, :new, :create, :create_fb, :new_fb]
+  before_filter :authenticate, :except => [:show, :new, :create, :create_fb, :send_activation, :new_fb, :activate]
   before_filter :correct_user, :only => [:edit, :update]   
   before_filter :admin_user, :only => [:destroy]
   
@@ -34,13 +37,15 @@ class UsersController < ApplicationController
       
   def create 
     @user = User.new(params[:user])   
-    if @user.save           
-      #redirect_to user_path(@user) OR   
-      sign_in @user
-      redirect_to @user, :flash => {:success =>"Welcome to the sample app!"} 
+    if @user.save
+      #redirect_to user_path(@user) OR
+      #sign_in @user
+      #redirect_to @user, :flash => {:success =>"Welcome to the sample app!"}
+      session['activate_id'] = @user.id
+      redirect_to '/users/send_activation'
     else
       @title = "Sign up" 
-      render 'new'    
+      render 'new'
     end
   end     
   
@@ -99,7 +104,7 @@ class UsersController < ApplicationController
           if(!existing_user)
             user = User.create!(:name => data['registration']['name'], :email => data['registration']['email'], 
                         :fb_user_id => data['user_id'], :password => random_password, 
-                        :password_confirmation => random_password)
+                        :password_confirmation => random_password, :activated => true)
             set_access_token data['oauth_token']
             sign_in(user)
             #create_user_fb_connections
@@ -117,6 +122,38 @@ class UsersController < ApplicationController
       end    
       redirect_to root_path
   end
+
+  def activate
+    if(params[:key])
+      dataUrl = params[:key]
+      #data = CGI::unescape(dataUrl)
+      #data64 = Base64.decode64 data
+      data64 = base64_url_decode(dataUrl)
+      data_decrypt = decrypt2 data64, CONSTANTS[  :activation_key]
+      parsed_json = ActiveSupport::JSON.decode(data_decrypt)
+      user_id = parsed_json['user_id']
+      key = parsed_json['key']
+      user = User.find(user_id)
+      if user.activate key
+        sign_in user
+        redirect_to root_path
+      end
+    end
+  end
+
+  def send_activation
+    user = User.find(session['activate_id'])
+    if(!user.activated)
+      key = user.salt
+      data = "{ 'user_id' : #{user.id}, 'key' : #{key} }"
+      key_encrypt = encrypt data, CONSTANTS[  :activation_key]
+      key_64 = Base64.encode64 key_encrypt
+      key64url =  CGI::escape(key_64)
+      @url = "http://" + request.host_with_port + "/users/activate?key=#{key64url}"
+      UserMailer.deliver_registration_activation user, @url
+    end
+  end
+
   
   private
   

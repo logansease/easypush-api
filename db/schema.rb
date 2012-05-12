@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501040509) do
+ActiveRecord::Schema.define(:version => 20120512105156) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
-    t.float  "app_id"
-    t.string  "app_secret"
+    t.float    "app_id"
+    t.string   "app_secret"
     t.string   "expiration_date"
     t.string   "app_name"
     t.datetime "created_at"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20120501040509) do
     t.string   "name"
     t.integer  "fb_id"
     t.string   "email"
-    t.string    "token"
+    t.string   "token"
     t.boolean  "unsubscribed", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20120501040509) do
   create_table "scores", :force => true do |t|
     t.integer  "score_fb_id"
     t.integer  "app_id"
-    t.string  "level_id"
+    t.string   "level_id"
     t.float    "score"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120501040509) do
     t.string   "salt"
     t.boolean  "admin",              :default => false
     t.integer  "fb_user_id"
+    t.boolean  "activated",          :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

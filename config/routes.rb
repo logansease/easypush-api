@@ -15,6 +15,8 @@ SampleApp::Application.routes.draw do
     collection do
       post :create_fb
       get :new_fb
+      get :activate
+      get :send_activation
     end
   end
 

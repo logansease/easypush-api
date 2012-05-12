@@ -81,6 +81,12 @@ class User < ActiveRecord::Base
   def unfollow!(followed)
      relationships.find_by_followed_id(followed.id).destroy    
   end
+
+  def activate (key)
+    if key == salt
+      self.update_attribute( :activated, true)
+    end
+  end
   
   private 
   
@@ -101,7 +107,9 @@ class User < ActiveRecord::Base
     
     def secure_hash(string)
        Digest::SHA2.hexdigest(string)
-    end         
+    end
+
+
   
 end
 
