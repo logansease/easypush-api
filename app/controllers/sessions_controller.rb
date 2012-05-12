@@ -54,8 +54,8 @@ class SessionsController < ApplicationController
       render 'new'  #note this is not a new request
     else
       if !user.activated
-        flash.now[:error] = "You must confirm your account email address, #{user.email}"
-        render 'new'  #note this is not a new request
+        session['activate_id'] = user.id
+        redirect_to '/users/send_activation'
       else
         sign_in user
         redirect_back_or(user) #helper mtd
