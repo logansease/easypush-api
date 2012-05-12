@@ -29,11 +29,12 @@ class UsersController < ApplicationController
       @url = "http://" + request.host_with_port + "/users/password_recovery?key=#{key64url}"
       UserMailer.deliver_password_recovery user, @url
       @email = user.email
-
-
+      message = "Check your email to reset your password"
+    else
+      message = "Sorry, No user account was found with that email address."
     end
 
-     redirect_to root_path, :flash => {:success =>"Check your email to reset your password"}
+     redirect_to root_path, :flash => {:success =>message}
   end
 
   def password_recovery
