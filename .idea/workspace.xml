@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/send_activation.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/app_contants.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/setup_mail.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/docs/Classes/MyFBManager.html" afterPath="$PROJECT_DIR$/public/docs/Classes/MyFBManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/docs/Classes/SocialScoresManager.html" afterPath="$PROJECT_DIR$/public/docs/Classes/SocialScoresManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/docs/Protocols/MyFBManagerDelegate.html" afterPath="$PROJECT_DIR$/public/docs/Protocols/MyFBManagerDelegate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/docs/Protocols/SocialScoresManagerDelegate.html" afterPath="$PROJECT_DIR$/public/docs/Protocols/SocialScoresManagerDelegate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/docs/hierarchy.html" afterPath="$PROJECT_DIR$/public/docs/hierarchy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/docs/index.html" afterPath="$PROJECT_DIR$/public/docs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,10 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="26" selection-start="4387" selection-end="4387" vertical-scroll-proportion="0.5042017">
+            <state line="146" column="26" selection-start="4387" selection-end="4387" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sessions_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="86" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20120512105156_add_activated_to_users.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120512105156_add_activated_to_users.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="13" selection-start="65" selection-end="65" vertical-scroll-proportion="0.025597269">
               <folding />
             </state>
           </provider>
@@ -88,28 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyFBManager.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/docs/Classes/MyFBManager.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="50" selection-start="620" selection-end="620" vertical-scroll-proportion="-8.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MyFBManagerDelegate.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/docs/Protocols/MyFBManagerDelegate.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="67" selection-start="720" selection-end="720" vertical-scroll-proportion="-9.375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hierarchy.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/docs/hierarchy.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="50" selection-start="518" selection-end="518" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
@@ -146,8 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/initializers/app_contants.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/registration_activation.html.erb" />
@@ -162,6 +145,8 @@
         <option value="$PROJECT_DIR$/app/views/users/send_activation.html.erb" />
         <option value="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20120512105156_add_activated_to_users.rb" />
       </list>
     </option>
   </component>
@@ -1038,20 +1023,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/helpers/app_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="46" selection-start="3031" selection-end="3031" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="20" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
@@ -1145,7 +1116,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="26" selection-start="4387" selection-end="4387" vertical-scroll-proportion="0.5042017">
+        <state line="146" column="26" selection-start="4387" selection-end="4387" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="86" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120512105156_add_activated_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="13" selection-start="65" selection-end="65" vertical-scroll-proportion="0.025597269">
           <folding />
         </state>
       </provider>
