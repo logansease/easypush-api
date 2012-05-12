@@ -151,6 +151,7 @@ class UsersController < ApplicationController
       key64url =  CGI::escape(key_64)
       @url = "http://" + request.host_with_port + "/users/activate?key=#{key64url}"
       UserMailer.deliver_registration_activation user, @url
+      @email = user.email
     end
   end
 
