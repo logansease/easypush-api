@@ -11,10 +11,8 @@
 
 <% end %> 
 
-<div>
-	 <%= gravatar_for @user%>     
-	 <a href = "http://gravatar.com/emails" target="_blank">change</a>
-</div>
 <div id="link_form">
 	<%= render 'fb_link_form'%>
 </div>
+
+<%=  render "shared/fb" %>

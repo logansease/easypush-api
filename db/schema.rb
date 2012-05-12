@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512105156) do
+ActiveRecord::Schema.define(:version => 20120512222955) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20120512105156) do
     t.boolean  "admin",              :default => false
     t.integer  "fb_user_id"
     t.boolean  "activated",          :default => false
+    t.boolean  "recover_password",   :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

@@ -25,7 +25,8 @@
 				<li><%= link_to "Sign out", signout_path %></li>  
 				<% else%>
 				<li><%= link_to "Sign in", signin_path %>
-				<%= link_to facebook_logo, "#", {:onclick => "Fb_Login();"} %>  </li>          
+				<%= link_to facebook_logo, "#", {:onclick => "Fb_Login();"} %>  </li>
+                  <%=  render "shared/fb" %>
 				<% end%>
 			</ul>
 		</nav>

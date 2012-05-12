@@ -4,14 +4,59 @@ class UsersController < ApplicationController
   include ApplicationHelper
   require 'cgi'
   
-  before_filter :authenticate, :except => [:show, :new, :create, :create_fb, :send_activation, :new_fb, :activate]
+  before_filter :authenticate, :except => [:password_recovery, :send_password_recovery,:show, :new, :create, :create_fb, :send_activation, :new_fb, :activate]
   before_filter :correct_user, :only => [:edit, :update]   
   before_filter :admin_user, :only => [:destroy]
   
   def new 
     @title = "Sign up" 
     @user = User.new
-  end  
+  end
+
+  def send_password_recovery
+    #validation email field
+    #generate reset key
+    #send email
+
+    user = User.find_by_email(params['email'])
+    if(user)
+      key = user.salt
+      data = "{ 'user_id' : #{user.id}, 'key' : #{key} }"
+      key_encrypt = encrypt data, CONSTANTS[  :activation_key]
+      key_64 = Base64.encode64 key_encrypt
+      key64url =  CGI::escape(key_64)
+      user.update_attribute(:recover_password, true)
+      @url = "http://" + request.host_with_port + "/users/password_recovery?key=#{key64url}"
+      UserMailer.deliver_password_recovery user, @url
+      @email = user.email
+
+
+    end
+
+     redirect_to root_path, :flash => {:success =>"Check your email to reset your password"}
+  end
+
+  def password_recovery
+    if(params[:key])
+      dataUrl = params[:key]
+      #data = CGI::unescape(dataUrl)
+      #data64 = Base64.decode64 data
+      data64 = base64_url_decode(dataUrl)
+      data_decrypt = decrypt2 data64, CONSTANTS[  :activation_key]
+      parsed_json = ActiveSupport::JSON.decode(data_decrypt)
+      user_id = parsed_json['user_id']
+      key = parsed_json['key']
+      user = User.find(user_id)
+      if key == user.salt && user.recover_password
+      #todo ensure user has requested to reset password
+        sign_in user
+        redirect_to "/users/#{user.id}/edit", :flash => {:success =>"Please reset your password now."}
+      else
+        redirect_to root_path
+      end
+
+    end
+  end
   
   def show               
      id = params[:id]

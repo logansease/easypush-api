@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   #helper is only available in views, so include the helper in controller
   #by putting here, get it in all controllers
   include SessionsHelper
+  include ApplicationHelper
   
 end
