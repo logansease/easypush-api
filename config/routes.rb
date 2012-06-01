@@ -15,10 +15,10 @@ SampleApp::Application.routes.draw do
     collection do
       post :send_password_recovery
       get :password_recovery
-      post :create_fb
-      get :new_fb
       get :activate
       get :send_activation
+      post :create_fb
+      get :new_fb
     end
   end
 
