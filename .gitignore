@@ -10,3 +10,5 @@ doc/app
 *~
 .idea/
 .DS_Store
+.sass-cache/
+public/assets/

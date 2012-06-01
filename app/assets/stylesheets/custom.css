@@ -144,6 +144,13 @@ td.sidebar {
 	background: #ffc;
 }
 
+table.yellowness {
+	width: 80%;
+	padding: 1em;
+	vertical-align:top;
+	background: #ffc;
+}
+
 .profile.img.gravatar
 {
 	border:1px solid #999;

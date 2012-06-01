@@ -1,5 +1,5 @@
 
-<table class="profile" summary="App info">
+<table class="" summary="App info">
   <p>If you are interested in using the Social Scores API in your app, please <%= link_to 'cotact me', contact_path %> first. Things are mostly ready to go, but this is still very new, soso I'd appreciate you dropping me a line.</p>
 
 
@@ -16,6 +16,8 @@
           		</td>
          	  <% end %>
     </tr>
+  </table>
+    <table class="well">
             <tr>
             <td><b>App Id: </b> <%= @app.app_id %></td>
             </tr>
@@ -24,13 +26,18 @@
             <td><b>Secret Key: </b> <%= @app.app_secret %></td>
      </tr>
 
-    <tr><td> <%= link_to  'users', '/apps/show_users?app_id=' + @app.id.to_s  %></td></tr>
+    <tr><td> <%= link_to  'View All Users', '/apps/show_users?app_id=' + @app.id.to_s  %></td></tr>
+
+      <tr> <td><b>Level: </b></td>
+      <td><b>Users: </b>   </td>
+      <td><b>High Score: </b> </td>
+    </tr>
 
         <% @levels.each do |l|%>
          <tr>
-         <td><b>Level: </b> <%= link_to  l.level_id, '/apps/show_level?level_id=' + l.level_id + '&app_id=' + @app.id.to_s %></td>
-         <td><b>Users: </b> <%= l.score_fb_id %> </td>
-         <td><b>High Score: </b> <%= l.score %></td>
+         <td> <%= link_to  l.level_id, '/apps/show_level?level_id=' + l.level_id + '&app_id=' + @app.id.to_s %></td>
+         <td> <%= l.score_fb_id %> </td>
+         <td> <%= l.score %></td>
          </tr>
               <%  end %>
          
