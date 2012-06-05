@@ -1,7 +1,11 @@
 <h1>Edit user</h1>
 
+<% if @user == current_user %>
+    <%= link_to "Manage Subscription", "/subscriptions/manage", :class => 'button' %>
+<% end %>
+
 <%= form_for(@user) do |f| %>
-                            
+
 <!-- the argument :f below is to pass the f into the partial -->
 <%= render 'fields', :f => f%>
 

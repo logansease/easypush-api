@@ -1,6 +1,8 @@
 module ApplicationHelper    
 
-
+  def date_from_int(stamp_int)
+    DateTime.strptime(stamp_int.to_s,'%s').strftime("%m/%d/%y")
+  end
 
   # Return a title on a per page basis
   def title

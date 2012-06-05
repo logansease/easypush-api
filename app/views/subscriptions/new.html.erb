@@ -1,0 +1,71 @@
+<script>
+    $(document).ready(function() {
+       $('.change_card').click(function(){
+           $('#card_number_section').show();
+           $('#card_code_section').show();
+           $('#card_exp_section').show();
+           $('#change_card').hide();
+       });
+
+        <% if current_user.subscription and !params[:change_card_param] %>
+          $('#card_number_section').hide();
+          $('#card_code_section').hide();
+          $('#card_exp_section').hide();
+        <% end %>
+     });
+</script>
+
+<h1>Signing up for "<%= @subscription.plan.name %>" Yearly Plan</h1>
+<p><%= @subscription.plan.description %> </p>
+
+<% if current_user.subscription and !params[:change_card_param] %>
+    <div id="change_card">
+    You have a card on file already. But you my press below to enter a new one.
+    <a href="#" class="button change_card">Enter a new card</a>
+    </div>
+<% end %>
+
+<%= form_for @subscription, :html => { :class => "new_subscription", :id => "new_subscription"} do |f| %>
+  <% if @subscription.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :plan_id %>
+
+  <%= f.hidden_field :stripe_card_token %>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :email, :value => current_user.email %>
+  </div>
+  <% if @subscription.stripe_card_token.present? %>
+    Credit card has been provided.
+  <% else %>
+    <div class="field" id="card_number_section">
+      <%= label_tag :card_number, "Credit Card Number" %>
+      <%= text_field_tag :card_number, nil, name: nil %>
+    </div>
+    <div class="field"  id="card_code_section">
+      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+      <%= text_field_tag :card_code, nil, name: nil %>
+    </div>
+    <div class="field"  id="card_exp_section">
+      <%= label_tag :card_month, "Card Expiration" %>
+      <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+    </div>
+  <% end %>
+  <div id="stripe_error">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+  <div class="actions">
+    <%= f.submit "Subscribe" %>
+  </div>
+<% end %>

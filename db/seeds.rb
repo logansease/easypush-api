@@ -6,6 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+Plan.delete_all
+
 plan1 = Plan.create(:id => 0, :name => 'Tier 1', :description => '1-3 administrative users', :price => '499')
 plan2 = Plan.create(:id => 1, :name => 'Tier 2', :description => '3-6 administrative users', :price => '599')
 plan3 = Plan.create(:id => 2, :name => 'Tier 3', :description => '6-9 administrative users', :price => '699')

@@ -1,0 +1,58 @@
+
+<div id="title">
+Subscription Details for:<h3><strong> <%=current_user.name %></strong>  </h3>
+</div>
+
+<table class="well">
+  <%if @customer['subscription'] %>
+
+  <tr>
+    <td><strong>Plan:</strong> <%= @customer['subscription']['plan']['name'] %>  </td>
+  </tr>
+  <tr>
+    <td><strong>Plan Details:</strong> <%= Plan.find(@customer['subscription']['plan']['id']).description %>  </td>
+  </tr>
+
+  <tr>
+    <td><strong>Status:</strong> <%= @customer['subscription']['status'] %>  </td>
+  </tr>
+
+  <tr>
+    <td><strong>Started On:</strong> <%=  date_from_int(@customer['subscription']['start']) %>  </td>
+  </tr>
+
+  <tr>
+    <td><strong>Next Renewal Date:</strong> <%= date_from_int(@customer['subscription']['current_period_end']) %>  </td>
+  </tr>
+
+  <tr>
+    <td><strong>Credit Card Last Four:</strong> <%= @customer['active_card']['last4'] %>  </td>
+  </tr>
+
+  <tr>
+      <td><strong>Credit Card Expiration:</strong> <%= @customer['active_card']['exp_month'] %> / <%= @customer['active_card']['exp_year'] %> </td>
+  </tr>
+
+  <tr>
+    <td><strong>Yearly Rate:</strong> <%= (@customer['subscription']['plan']['amount'] / 100).to_s << "  " << @customer['subscription']['plan']['currency']%>  </td>
+  </tr>
+  <% end %>
+  
+  <% if (@customer['deleted'] and @customer['deleted'] == true )  %>
+        <tr>
+          <td>You subscription has been deleted.</td>
+        </tr>
+  <% end %>
+</table>
+<div class="actions">
+
+  <%= button_to 'Change Plan', '/plans/', :method => "get", :class => "button" %>
+
+  <% if @customer['subscription'] %>
+      <%= link_to "Change Card", new_subscription_path(:plan_id =>  @customer['subscription']['plan']['id'], :change_card_param => true), :class => "button" %>
+  <% end %>
+
+  <% if current_user.subscription %>
+    <%= button_to 'Cancel Subscription', "/subscriptions/#{current_user.subscription.id}", :method => "delete", :class => "button" %>
+  <% end %>
+</div>

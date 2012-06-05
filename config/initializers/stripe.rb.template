@@ -1,0 +1,2 @@
+Stripe.api_key = "key"
+STRIPE_PUBLIC_KEY = "add here"
