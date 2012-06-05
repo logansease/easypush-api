@@ -13,6 +13,7 @@ gem 'faker', '0.3.1'
 gem 'json'
 gem 'koala', '1.3.0'
 gem 'jquery-rails'
+gem 'stripe'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

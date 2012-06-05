@@ -33,6 +33,14 @@ SampleApp::Application.routes.draw do
   resources :fb_connections, :only => [:create, :destroy]
 
 
+  #subscriptions
+  resources :subscriptions do
+    collection do
+      get :manage
+    end
+  end
+  resources :plans
+
   root :to => "pages#home" 
   match '/signup', :to => 'users#new'
   match '/get_started', :to => 'pages#doc'

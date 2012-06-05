@@ -17,7 +17,8 @@
 class User < ActiveRecord::Base      
   attr_accessor  :password, :fb_access_token  #defines new getter and setter
   attr_accessible :name, :email, :password, :password_confirmation, :fb_user_id, :fb_access_token
-  
+
+  has_one :subscription, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
   has_many :apps, :dependent => :destroy
   has_many :relationships, :dependent => :destroy,

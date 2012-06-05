@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -55,6 +56,14 @@ ActiveRecord::Schema.define(:version => 20120512222955) do
     t.datetime "updated_at"
   end
 
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -70,6 +79,15 @@ ActiveRecord::Schema.define(:version => 20120512222955) do
     t.integer  "app_id"
     t.string   "level_id"
     t.float    "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.string   "stripe_customer_token"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

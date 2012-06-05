@@ -21,3 +21,6 @@ tail -f logs/test.log
 
 heroku rake db:reset
 heroku rake db:create
+
+new rvm
+rvm use [version]@[directory] --create --rvmrc

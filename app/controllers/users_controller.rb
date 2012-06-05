@@ -146,12 +146,12 @@ class UsersController < ApplicationController
     user = User.find(session['activate_id'])
     if(!user.activated)
       key = user.salt
-      data = "{ 'user_id' : #{user.id}, 'key' : #{key} }"
+      data = '{ "user_id" : "' + user.id.to_s + '", "key" : "' + key + '" }'
       key_encrypt = encrypt data, CONSTANTS[  :activation_key]
       key_64 = Base64.encode64 key_encrypt
       key64url =  CGI::escape(key_64)
       @url = "http://" + request.host_with_port + "/users/activate?key=#{key64url}"
-      UserMailer.deliver_registration_activation user, @url
+      UserMailer.registration_activation(user, @url).deliver
       @email = user.email
     end
   end
@@ -160,13 +160,13 @@ class UsersController < ApplicationController
     user = User.find_by_email(params['email'])
     if(user)
       key = user.salt
-      data = "{ 'user_id' : #{user.id}, 'key' : #{key} }"
+      data = '{ "user_id" : "' + user.id.to_s + '", "key" : "' + key + '" }'
       key_encrypt = encrypt data, CONSTANTS[  :activation_key]
       key_64 = Base64.encode64 key_encrypt
       key64url =  CGI::escape(key_64)
       user.update_attribute(:recover_password, true)
       @url = "http://" + request.host_with_port + "/users/password_recovery?key=#{key64url}"
-      UserMailer.deliver_password_recovery user, @url
+      UserMailer.password_recovery( user, @url).deliver
       @email = user.email
       message = "Check your email to reset your password"
     else
