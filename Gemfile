@@ -15,7 +15,6 @@ gem 'koala', '1.3.0'
 gem 'jquery-rails'
 gem 'stripe'
 gem 'mail', "2.3.0"
-gem 'pg'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -30,7 +29,13 @@ end
    gem 'rspec-rails','2.0.0.beta.18'    
    gem 'annotate', '2.4.0' 
    
- end                                
+ end
+
+group :production do
+  gem 'execjs'
+  gem 'therubyracer'
+  gem 'pg'
+end
 
 group :test do
 	gem 'rspec', '2.0.0.beta.18' 
