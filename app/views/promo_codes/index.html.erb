@@ -1,0 +1,27 @@
+<%= link_to "Add new codes.","/promo_codes/new?app_id=#{@app.id}" %>
+
+Your promo link: <%= "http://" + request.host_with_port + "/promo_codes/redeem?app_key=#{@app.app_id}"  %>
+
+<table>
+  <% if @promo_codes %>
+  <% @promo_codes.each do |code| %>
+    <tr>
+      <td>
+         <%=  code.code %>
+      </td>
+      <td>
+         <%=  code.claimed_by_ip %>
+      </td>
+      <td>
+            <% if code.claimed_by_ip %>
+            <%= code.updated_at %>
+            <% end%>
+      </td>
+      <td>
+        <%= code.invalidated? %>
+      </td>
+    
+    </tr>
+  <% end %>
+  <% end %>
+</table>

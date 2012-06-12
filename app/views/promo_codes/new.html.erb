@@ -1,0 +1,11 @@
+<%= form_tag :controller => "promo_codes", :action => "create", :method => "post" %>
+
+<%= label_tag(:old_codes, "Invalidate all unused codes.") %>
+<%= check_box_tag(:clear_old_codes) %>
+
+<%= label_tag(:codes, "Paste codes here, each on a separate line.") %>
+<%= text_area_tag :codes_text,"", :size => "24x10" %>
+
+<%= hidden_field_tag :app_id, @app.id %>
+
+<%= submit_tag "save" %>

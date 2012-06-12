@@ -5,13 +5,13 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = url
 
-    mail(:from => "SocialScoresAPI.com <no-reply@ipartymobile.com>", :to => "#{user.name} <#{user.email}>", :subject => "Please activate your account.")
+    mail(:from => "No Reply <no-reply@ipartymobile.com>", :to => "#{user.name} <#{user.email}>", :subject => "Please activate your account.")
   end
 
   def password_recovery(user , url)
     @user = user
     @url = url
 
-    mail(:from => "SocialScoresAPI.com <no-reply@ipartymobile.com>", :to => "#{user.name} <#{user.email}>", :subject => "Lost Password.")
+    mail(:from => "No Reply <no-reply@ipartymobile.com>", :to => "#{user.name} <#{user.email}>", :subject => "Lost Password.")
   end
 end

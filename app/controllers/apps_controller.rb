@@ -36,7 +36,7 @@ class AppsController < ApplicationController
      if current_user.admin
         @apps = App.all
      else
-        @apps = App.find_by_user_id(current_user.id)
+        @apps = App.find_all_by_user_id(current_user.id)
      end
   end
 

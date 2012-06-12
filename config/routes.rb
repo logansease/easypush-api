@@ -31,7 +31,11 @@ SampleApp::Application.routes.draw do
   resources :microposts, :only => [:create, :destroy] 
   resources :relationships, :only => [:create, :destroy]
   resources :fb_connections, :only => [:create, :destroy]
-
+  resources :promo_codes do
+    collection do
+      get :redeem
+    end
+  end
 
   #subscriptions
   resources :subscriptions do

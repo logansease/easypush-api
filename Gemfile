@@ -14,6 +14,7 @@ gem 'json'
 gem 'koala', '1.3.0'
 gem 'jquery-rails'
 gem 'stripe'
+gem 'mail', "2.3.0"
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

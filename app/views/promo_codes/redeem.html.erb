@@ -1,0 +1,14 @@
+
+<% if @warning %>
+    <%= @warning %>
+    <p> Here are codes previously claimed </p>
+<% end %>
+
+<p>
+<% if !@code %>
+      Sorry there are no promo codes remaining at this time. Please check back later.
+ <% else %>
+      Here is a developer added promo code to download <%= @app.app_name %>:
+   <%= link_to  @code.code, "#{CONSTANTS[  :promo_link_url]}#{@code.code}"  %>
+  <%  end %>
+</p>

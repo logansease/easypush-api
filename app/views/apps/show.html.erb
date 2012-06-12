@@ -26,6 +26,10 @@
             <td><b>Secret Key: </b> <%= @app.app_secret %></td>
      </tr>
 
+      <tr>
+                  <td> <%= link_to  'Manage Your Promo Codes', '/promo_codes?app_id=' + @app.id.to_s  %></td>
+      </tr>
+
     <tr><td> <%= link_to  'View All Users', '/apps/show_users?app_id=' + @app.id.to_s  %></td></tr>
 
       <tr> <td><b>Level: </b></td>
