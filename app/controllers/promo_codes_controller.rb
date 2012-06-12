@@ -52,7 +52,7 @@ class PromoCodesController < ApplicationController
   def redeem
     @app = App.find_by_app_id(params[:app_key])
 
-    user_codes = PromoCode.where("app_id = #{@app.id} and invalidated = ? and claimed_by_ip = ?", false,request.remote_ip])
+    user_codes = PromoCode.where("app_id = #{@app.id} and invalidated = ? and claimed_by_ip = ?", false,request.remote_ip)
     if(!user_codes.empty?)
       @warning = "Sorry, only one promo code may be claimed per IP address."
       @code = user_codes.first

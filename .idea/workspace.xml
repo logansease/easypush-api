@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/ipicon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/promo_codes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/promo_codes_controller.rb" />
     </list>
     <ignored path="sample_app.iws" />
@@ -58,7 +60,7 @@
       <file leaf-file-name="promo_codes_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/promo_codes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="51" selection-start="1841" selection-end="1841" vertical-scroll-proportion="0.646098">
+            <state line="54" column="121" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.42831215">
               <folding />
             </state>
           </provider>
@@ -158,8 +160,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="36" />
+    <option name="x" value="-13" />
+    <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="774" />
   </component>
@@ -495,6 +497,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socialscores" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -553,6 +577,7 @@
       <recent name="$PROJECT_DIR$/config/initializers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts" />
       <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/public/docs" />
@@ -894,7 +919,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="36" width="1280" height="774" extended-state="0" />
+    <frame x="-13" y="22" width="1280" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1078,7 +1103,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/promo_codes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="51" selection-start="1841" selection-end="1841" vertical-scroll-proportion="0.646098">
+        <state line="54" column="121" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.42831215">
           <folding />
         </state>
       </provider>
