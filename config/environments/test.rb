@@ -37,4 +37,7 @@ SampleApp::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  Stripe.api_key = "SMnv05IQL925X6RW7znpJLr0KQaWqdcR"
+  STRIPE_PUBLIC_KEY = "pk_XoQeBQbuB5OrAb5hrlzfACAXlA7w7"
 end

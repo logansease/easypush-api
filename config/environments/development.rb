@@ -24,5 +24,8 @@ SampleApp::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Stripe.api_key = "SMnv05IQL925X6RW7znpJLr0KQaWqdcR"
+  STRIPE_PUBLIC_KEY = "pk_XoQeBQbuB5OrAb5hrlzfACAXlA7w7"
 end
 

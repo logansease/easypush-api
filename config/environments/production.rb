@@ -62,4 +62,7 @@ SampleApp::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  Stripe.api_key = "g0J8GnmD3WTAsA2F9YOr4biK1cACnx9Q"
+  STRIPE_PUBLIC_KEY = "pk_0xJAErSa331RD4WZLqhjF0qew50eY"
 end
