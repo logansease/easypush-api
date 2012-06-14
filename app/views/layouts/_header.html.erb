@@ -7,7 +7,7 @@
 
               <li><%= link_to "Get Started", get_started_path%></li>
 				<% if signed_in?  %>
-                  <li><%= link_to "Docs", "/docs" %></li>
+                  <li><%= link_to "Docs","#", :onclick => "window.open('/docs', '_docs');" %> </li>
 					<li><%= link_to "Profile", user_path(current_user) %></li> 
                   
                   <% if current_user.admin? %>
