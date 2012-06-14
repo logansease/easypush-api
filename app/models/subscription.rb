@@ -18,4 +18,10 @@ class Subscription < ActiveRecord::Base
     errors.add :base, "There was a problem with your credit card."
     false
   end
+
+  def is_deleted
+    customer = Stripe::Customer.retrieve(self.stripe_customer_token)
+    return (!customer[:subscription] and customer[:deleted] == true)
+  end
+
 end

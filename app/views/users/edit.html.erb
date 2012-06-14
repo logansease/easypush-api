@@ -1,6 +1,9 @@
 <h1>Edit user</h1>
 
 <% if @user == current_user %>
+    <p>Subscription is: <strong>
+      <%= if @user.is_subscription_active then "Active" else "Inactive. Please subscribe." end %>
+    </strong></p>
     <%= link_to "Manage Subscription", "/subscriptions/manage", :class => 'button' %>
 <% end %>
 

@@ -88,6 +88,17 @@ class User < ActiveRecord::Base
       self.update_attribute( :activated, true)
     end
   end
+
+  def is_subscription_active
+      if !subscription
+        false
+      elsif subscription.is_deleted
+        false
+      else
+        customer = Stripe::Customer.retrieve(subscription.stripe_customer_token)
+        customer['subscription']['status'] == 'active' or customer['subscription']['status'] == 'trialing'
+      end
+  end
   
   private 
   

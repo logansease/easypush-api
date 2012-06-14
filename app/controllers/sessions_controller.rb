@@ -58,7 +58,7 @@ class SessionsController < ApplicationController
         redirect_to '/users/send_activation'
       else
         sign_in user
-        redirect_back_or(user) #helper mtd
+        redirect_back_or(root_path) #helper mtd
       end
 
     end

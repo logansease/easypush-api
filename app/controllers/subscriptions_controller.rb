@@ -53,7 +53,7 @@ class SubscriptionsController < ApplicationController
       subscription = current_user.subscription
       if(!subscription)
         redirect_to "/plans/"
-      elsif is_customer_deleted(current_user.subscription.stripe_customer_token)
+      elsif subscription.is_deleted
           current_user.subscription.delete
           current_user.reload
         redirect_to "/plans"
