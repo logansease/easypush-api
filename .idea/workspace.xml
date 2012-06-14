@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/stripe.rb" afterPath="$PROJECT_DIR$/config/initializers/stripe.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/plans/index.html.erb" afterPath="$PROJECT_DIR$/app/views/plans/index.html.erb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,15 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_header.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="-0.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,10 +46,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stripe.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="stripe.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/stripe.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="18" selection-start="71" selection-end="71" vertical-scroll-proportion="0.024671054">
+            <state line="1" column="18" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/plans/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="23" selection-start="40" selection-end="40" vertical-scroll-proportion="0.025684932">
               <folding />
             </state>
           </provider>
@@ -134,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/initializers/app_contants.rb" />
         <option value="$PROJECT_DIR$/app/views/promo_codes/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/promo_codes/redeem.html.erb" />
         <option value="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
@@ -150,6 +146,7 @@
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/config/environments/test.rb" />
         <option value="$PROJECT_DIR$/config/initializers/stripe.rb" />
+        <option value="$PROJECT_DIR$/app/views/plans/index.html.erb" />
       </list>
     </option>
   </component>
@@ -388,6 +385,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="promo_codes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socialscores" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plans" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1032,11 +1051,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/setup_mail.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/promo_codes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="121" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0" />
@@ -1131,7 +1145,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/stripe.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="18" selection-start="71" selection-end="71" vertical-scroll-proportion="0.024671054">
+        <state line="1" column="18" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/plans/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="23" selection-start="40" selection-end="40" vertical-scroll-proportion="0.025684932">
           <folding />
         </state>
       </provider>
