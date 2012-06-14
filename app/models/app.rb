@@ -14,7 +14,7 @@ class App < ActiveRecord::Base
 
   def levels_for_app
     #use group by query to get unique fb ids grouped by level id for this app id from scores table
-    Score.select("count(distinct score_fb_id) as score_fb_id, level_id, max(score) as score").group('level_id')
+    Score.select("count(distinct score_fb_id) as score_fb_id, level_id, max(score) as score ").where("app_id = #{self.id}").group('level_id')
   end
 
   def scores_for_level (level_id)
