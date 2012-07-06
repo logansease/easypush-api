@@ -54,7 +54,7 @@ class PromoCodesController < ApplicationController
 
     user_codes = PromoCode.where("app_id = #{@app.id} and invalidated = ? and claimed_by_ip = ?", false,request.remote_ip)
     if(!user_codes.empty?)
-      @warning = "Sorry, only one promo code may be claimed per IP address."
+      @warning = "It appears you have already gotten a promo code. If you have not redeemed it, please click the link below."
       @code = user_codes.first
     else
       codes = PromoCode.where("app_id = #{@app.id} and invalidated = ? and claimed_by_ip is null", false)

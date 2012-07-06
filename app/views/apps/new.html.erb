@@ -5,6 +5,9 @@
     <div class="field">
       <%= f.label 'Name'%> <br/>
       <%= f.text_field :app_name%>
+
+      <%= f.label 'App Store Id'%> <br/>
+      <%= f.text_field :app_store_id%>
     </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
 

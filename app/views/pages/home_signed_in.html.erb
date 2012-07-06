@@ -1,0 +1,19 @@
+<% if !current_user.is_subscription_active %>
+<div id="please_subscribe">
+  <p>Your subscription is currently inactive. Please consider subscribing.</p>
+  <%= link_to "Manage Subscription", "/subscriptions/manage", :class => 'button' %>
+</div>
+
+<% end %>
+
+<table class="front" summary="for signed in users">
+ <tr>
+         <h2>Apps</h2>
+                  <%= link_to 'add new',new_app_path  %>
+                   <% if current_user.apps.any?%>
+              			   <table class="microposts" summary="user microposts">
+              				    <%= render current_user.apps%>
+              				</table>
+              	<%end%>
+ </tr>
+</table>

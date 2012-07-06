@@ -1,14 +1,24 @@
 
 <% if @warning %>
-    <%= @warning %>
-    <p> Here are codes previously claimed </p>
+    <p><%= @warning %></p>
 <% end %>
 
 <p>
 <% if !@code %>
       Sorry there are no promo codes remaining at this time. Please check back later.
  <% else %>
-      Here is a developer added promo code to download <%= @app.app_name %>:
+      <p>
+      Here is a developer added promo code to download '<%=  @app.app_name %>':
    <%= link_to  @code.code, "#{CONSTANTS[  :promo_link_url]}#{@code.code}"  %>
+    </p>
+    <div class="well">
+    <p>
+      In exchange for the free code, after downloading the developer requests that you take a minute to give the app a 5-star review to show your support.
+      Positive reviews greatly help apps gain visibility, which allows the developer to continue to develop the app and add new features.
+    </p>
+    <p>
+      To leave app feedback, please click <%= link_to 'here', "#{CONSTANTS[  :review_url]}#{@app.app_store_id}" %> after you have redeemed your code.
+    </p>
+    </div>
   <%  end %>
 </p>

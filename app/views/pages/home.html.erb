@@ -1,28 +1,4 @@
 
-<% if signed_in?%>
-
-    <% if !current_user.is_subscription_active %>
-    <div id="please_subscribe">
-      <p>Your subscription is currently inactive. Please consider subscribing.</p>
-      <%= link_to "Manage Subscription", "/subscriptions/manage", :class => 'button' %>
-    </div>
-
-    <% end %>
-
-	<table class="front" summary="for signed in users">
-		   <tr>
-             <h2>Apps</h2>
-                      <%= link_to 'add new',new_app_path  %>
-                       <% if current_user.apps.any?%>
-                  			   <table class="microposts" summary="user microposts">
-                  				    <%= render current_user.apps%>
-                  				</table>
-                  	<%end%>
-		   </tr>
-	</table>
-
-<% else %>
-
 
 <h1>Introducing the Social Scores API</h1>
 <p>The social scores API is an easy way for iOS developers to add per level Facebook Friend based, or "social" scoreboards into their mobile games.</p>
@@ -33,4 +9,3 @@
     <p>Sign up and download the API to get social scoreboards for your app today!</p>
 <%= link_to "Sign up now!", signup_path, :class => "signup_button round"%>      
 <center>or <%= link_to "learn more", about_path %></center>
-<% end %>

@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612033546) do
-
-  create_table "promo_codes", :force => true do |t|
-    t.string   "code"
-    t.string   "claimed_by_ip"
-    t.integer  "app_id"
-    t.boolean  "invalidated", :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20120706130637) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120612033546) do
     t.string   "app_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "app_store_id"
   end
 
   create_table "fb_connections", :force => true do |t|
@@ -69,6 +61,15 @@ ActiveRecord::Schema.define(:version => 20120612033546) do
     t.string   "name"
     t.decimal  "price"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "promo_codes", :force => true do |t|
+    t.string   "code"
+    t.string   "claimed_by_ip"
+    t.integer  "app_id"
+    t.boolean  "invalidated",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
