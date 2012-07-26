@@ -29,11 +29,11 @@
 
 <h3>Step 6-  Set up Facebook App</h3>
 <p>Go to facebook.com/developers and register a new app.</p>
-<p>In your project, open MyFacebookManager.h and add the app ID and Secret Key for your app. Also set the link and picture URLs you'd like to use when a user makes a posting on facebook with the API.</p>
+<p>In your project, open SocialScoresConfig.m and add the app ID and Secret Key for your app. Also set the link and picture URLs you'd like to use when a user makes a posting on facebook with the API.</p>
 
 <h3>Step 7-  Set up Social Scores App</h3>
 <p>Register at socialscoresapi.com. Create a new app.</p>
-<p>In your project, open SocialScoresManager.h and add the app ID and secret Key for your app.</p>
+<p>In your project, open SocialScoresConfig.m and add the app ID and secret Key for your app.</p>
 
 <h3>You're ready to go!</h3>
 
@@ -49,8 +49,8 @@
   <div class="code-box">
 -(void) onLevelComplete{
    SocialScoresManager * scoreManager = [SocialScoresManager sharedManager];
-   NSDictionary * options = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self, [NSNumber numberWithInt:score], nil] forKeys:[NSArray arrayWithObjects:@"viewController",@"score", nil]]; <
-   [scoreManager showTopScoresForLevel:@"Level 1" withOptions:options];
+   NSDictionary * options = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: [NSNumber numberWithInt:score], nil] forKeys:[NSArray arrayWithObjects:@"score", nil]]; <
+   [scoreManager showTopScoresForLevel:@"Level 1" inViewController:self withOptions:options];
 }
   </div>
   <p>This will save the player's score, and display a leader board for this level. The player will be able to see how their score ranks amongst their friends or the whole community. They will be able to share the scoreboard on their facebook wall.</p>
