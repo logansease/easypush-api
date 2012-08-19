@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="" />
+    <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20120819140526_change_fb_relationships_to_float.rb" afterPath="$PROJECT_DIR$/db/migrate/20120819140526_change_fb_relationships_to_float.rb" />
+    </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,7 +58,7 @@
       <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="25" selection-start="1225" selection-end="1234" vertical-scroll-proportion="0.0">
+            <state line="26" column="30" selection-start="1085" selection-end="1099" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -65,7 +67,7 @@
       <file leaf-file-name="20120819134923_change_fb_id_to_float.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20120819134923_change_fb_id_to_float.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="133" selection-end="251" vertical-scroll-proportion="0.0">
+            <state line="6" column="19" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -74,7 +76,7 @@
       <file leaf-file-name="20120819140526_change_fb_relationships_to_float.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/migrate/20120819140526_change_fb_relationships_to_float.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="243" selection-end="243" vertical-scroll-proportion="0.39589444">
+            <state line="8" column="32" selection-start="202" selection-end="202" vertical-scroll-proportion="0.35190615">
               <folding />
             </state>
           </provider>
@@ -879,23 +881,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20120819134923_change_fb_id_to_float.rb">
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="133" selection-end="251" vertical-scroll-proportion="0.0">
+        <state line="26" column="30" selection-start="1085" selection-end="1099" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120819134923_change_fb_id_to_float.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="25" selection-start="1225" selection-end="1234" vertical-scroll-proportion="0.0">
+        <state line="6" column="19" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20120819140526_change_fb_relationships_to_float.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="243" selection-end="243" vertical-scroll-proportion="0.39589444">
+        <state line="8" column="32" selection-start="202" selection-end="202" vertical-scroll-proportion="0.35190615">
           <folding />
         </state>
       </provider>
