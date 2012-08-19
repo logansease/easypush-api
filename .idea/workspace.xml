@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/fb_connections_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/fb_connections_helper.rb" />
-    </list>
+    <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="" />
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,7 +56,7 @@
       <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="27" selection-start="1140" selection-end="1151" vertical-scroll-proportion="0.0">
+            <state line="87" column="27" selection-start="2758" selection-end="2769" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,7 +74,7 @@
       <file leaf-file-name="20120819134923_change_fb_id_to_float.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20120819134923_change_fb_id_to_float.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="19" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
+            <state line="2" column="0" selection-start="59" selection-end="132" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,19 +98,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fb_connections_helper.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fb_connections_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/fb_connections_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="41" selection-start="540" selection-end="540" vertical-scroll-proportion="0.70247936">
+            <state line="15" column="21" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_stylesheets.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/_stylesheets.html.erb">
+      <file leaf-file-name="20120819142344_change_fb_relationships_to_float3.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20120819142344_change_fb_relationships_to_float3.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="9" column="51" selection-start="234" selection-end="234" vertical-scroll-proportion="0.42319748">
               <folding />
             </state>
           </provider>
@@ -131,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/pages/home_signed_in.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/home.html.erb" />
@@ -147,6 +144,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20120819140526_change_fb_relationships_to_float.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20120819141524_change_fb_relationships_to_float2.rb" />
         <option value="$PROJECT_DIR$/app/helpers/fb_connections_helper.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20120819142344_change_fb_relationships_to_float3.rb" />
       </list>
     </option>
   </component>
@@ -808,11 +806,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20120512222955_add_recover_password_to_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -871,20 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20120819134923_change_fb_id_to_float.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="27" selection-start="1140" selection-end="1151" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20120819141524_change_fb_relationships_to_float2.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="24" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
@@ -901,7 +880,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/fb_connections_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="41" selection-start="540" selection-end="540" vertical-scroll-proportion="0.70247936">
+        <state line="15" column="21" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120819134923_change_fb_id_to_float.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="59" selection-end="132" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="27" selection-start="2758" selection-end="2769" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120819142344_change_fb_relationships_to_float3.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="51" selection-start="234" selection-end="234" vertical-scroll-proportion="0.42319748">
           <folding />
         </state>
       </provider>
