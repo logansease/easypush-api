@@ -9,7 +9,9 @@ module FbConnectionsHelper
           FbConnection.create!(:fbc_user_id =>fb_user.fb_id, :fbc_fb_id => result["id"])
         end
 
-       current_user.reload
+        if current_user
+          current_user.reload
+        end
     end
 
 end
