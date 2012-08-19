@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120706130637) do
+ActiveRecord::Schema.define(:version => 20120819134923) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20120706130637) do
 
   create_table "fb_users", :force => true do |t|
     t.string   "name"
-    t.integer  "fb_id"
+    t.float    "fb_id"
     t.string   "email"
     t.string   "token"
     t.boolean  "unsubscribed", :default => false
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(:version => 20120706130637) do
   end
 
   create_table "relationships", :force => true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
+    t.float    "follower_id"
+    t.float    "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20120706130637) do
     t.string   "encrypted_password"
     t.string   "salt"
     t.boolean  "admin",              :default => false
-    t.integer  "fb_user_id"
+    t.float    "fb_user_id"
     t.boolean  "activated",          :default => false
     t.boolean  "recover_password",   :default => false
   end
