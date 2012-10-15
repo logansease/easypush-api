@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/push_notification_id.rb" afterPath="$PROJECT_DIR$/app/models/push_notification_id.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_notification_id.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="push_notification_id.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/push_notification_id.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="32" selection-start="133" selection-end="133" vertical-scroll-proportion="0.17326732">
+            <state line="7" column="32" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="19" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.0">
+            <state line="123" column="59" selection-start="3319" selection-end="3319" vertical-scroll-proportion="0.80944353">
               <folding />
             </state>
           </provider>
@@ -145,8 +145,8 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20121015153244_create_push_notification_ids.rb" />
         <option value="$PROJECT_DIR$/app/views/push_notifications/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/push_notification_id.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
       </list>
     </option>
   </component>
@@ -953,13 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/push_notifications_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/push_notifications/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="65" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
@@ -974,16 +967,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/push_notification_id.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="19" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.0">
+        <state line="7" column="32" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/push_notification_id.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/push_notifications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="32" selection-start="133" selection-end="133" vertical-scroll-proportion="0.17326732">
+        <state line="9" column="31" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="59" selection-start="3319" selection-end="3319" vertical-scroll-proportion="0.80944353">
           <folding />
         </state>
       </provider>

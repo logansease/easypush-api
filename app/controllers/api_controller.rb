@@ -118,7 +118,7 @@ class ApiController < ApplicationController
 
     appNotifications =  PushNotificationId.find_by_app_id(app_id)
     if(!appNotifications || !appNotifications.include?(device))
-      device = PushNotificationId.create!(:app_id => app_id, :device_id => device, :fb_user_id => fb_user)
+      device = PushNotificationId.create!(:app_id => app.id, :device_id => device, :fb_user_id => fb_user)
     end
 
     render "success"
