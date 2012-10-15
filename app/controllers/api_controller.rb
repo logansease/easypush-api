@@ -125,12 +125,13 @@ class ApiController < ApplicationController
 
 
 
-    appNotifications =  PushNotificationId.find_by_app_id(app_id_param)
+    appNotifications =  PushNotificationId.find_all_by_app_id(app_id_param)
     if(!appNotifications || appNotifications.select{|notification| notification.device_id == device}.count <= 0)
       device = PushNotificationId.create!(:app_id => app.id, :device_id => device, :fb_user_id => fb_user)
+      render :json => {"result" => "added"}
+    else
+      render :json => {"result" => "duplicate"}
     end
-
-    render :json => {"success" => "true"}
 
   end
 
