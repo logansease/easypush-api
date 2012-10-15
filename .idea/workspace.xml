@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="" />
+    <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/push_notifications/index.html.erb" afterPath="$PROJECT_DIR$/app/views/push_notifications/index.html.erb" />
+    </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/push_notifications/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="65" selection-start="66" selection-end="66" vertical-scroll-proportion="-0.625">
+            <state line="15" column="20" selection-start="300" selection-end="300" vertical-scroll-proportion="0.38659793">
               <folding />
             </state>
           </provider>
@@ -89,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_notifications_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="push_notifications_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/push_notifications_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="35" selection-start="189" selection-end="189" vertical-scroll-proportion="0.12376238">
+            <state line="5" column="35" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,10 +143,10 @@
         <option value="$PROJECT_DIR$/app/views/apps/show.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20121015153244_create_push_notification_ids.rb" />
-        <option value="$PROJECT_DIR$/app/views/push_notifications/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/push_notification_id.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/push_notifications_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/push_notifications/index.html.erb" />
       </list>
     </option>
   </component>
@@ -973,13 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/push_notifications/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="65" selection-start="66" selection-end="66" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20121015153244_create_push_notification_ids.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="13" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0">
@@ -1003,7 +998,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/push_notifications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="35" selection-start="189" selection-end="189" vertical-scroll-proportion="0.12376238">
+        <state line="5" column="35" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/push_notifications/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="20" selection-start="300" selection-end="300" vertical-scroll-proportion="0.38659793">
           <folding />
         </state>
       </provider>
