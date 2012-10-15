@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/push_notification_id.rb" afterPath="$PROJECT_DIR$/app/models/push_notification_id.rb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_notification_id.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="push_notification_id.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/push_notification_id.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+            <state line="7" column="32" selection-start="133" selection-end="133" vertical-scroll-proportion="0.17326732">
               <folding />
             </state>
           </provider>
@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="api_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="8" selection-start="3127" selection-end="3127" vertical-scroll-proportion="0.70826304">
+            <state line="120" column="19" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,13 +140,13 @@
         <option value="$PROJECT_DIR$/db/migrate/20120819141524_change_fb_relationships_to_float2.rb" />
         <option value="$PROJECT_DIR$/app/helpers/fb_connections_helper.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20120819142344_change_fb_relationships_to_float3.rb" />
-        <option value="$PROJECT_DIR$/app/models/push_notification_id.rb" />
         <option value="$PROJECT_DIR$/app/controllers/push_notifications_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/apps/show.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20121015153244_create_push_notification_ids.rb" />
         <option value="$PROJECT_DIR$/app/views/push_notifications/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/push_notification_id.rb" />
       </list>
     </option>
   </component>
@@ -357,6 +357,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="promo_codes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socialscores" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -914,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/push_notification_id.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="23" selection-start="3616" selection-end="3623" vertical-scroll-proportion="0.0">
@@ -965,7 +976,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="8" selection-start="3127" selection-end="3127" vertical-scroll-proportion="0.70826304">
+        <state line="120" column="19" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/push_notification_id.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="32" selection-start="133" selection-end="133" vertical-scroll-proportion="0.17326732">
           <folding />
         </state>
       </provider>
