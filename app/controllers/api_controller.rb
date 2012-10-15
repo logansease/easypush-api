@@ -121,7 +121,7 @@ class ApiController < ApplicationController
       device = PushNotificationId.create!(:app_id => app.id, :device_id => device, :fb_user_id => fb_user)
     end
 
-    render "success"
+    render :json => {"success" => "true"}
 
   end
 
