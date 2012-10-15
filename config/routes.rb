@@ -28,6 +28,7 @@ SampleApp::Application.routes.draw do
       get :show_users
     end
   end
+  resources :push_notifications, :only => [:index]
   resources :microposts, :only => [:create, :destroy] 
   resources :relationships, :only => [:create, :destroy]
   resources :fb_connections, :only => [:create, :destroy]
@@ -57,6 +58,7 @@ SampleApp::Application.routes.draw do
   match '/api/save_score', :to => 'api#save_score'
   match '/api/get_scores', :to => 'api#get_scores'
   match '/api/save_user', :to => 'api#save_user'
+  match '/api/register_push', :to => 'api#register_push'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

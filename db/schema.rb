@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819134923) do
+ActiveRecord::Schema.define(:version => 20121015153244) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(:version => 20120819134923) do
   end
 
   create_table "fb_connections", :force => true do |t|
-    t.integer  "fbc_user_id"
+    t.float    "fbc_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "fbc_fb_id"
+    t.float    "fbc_fb_id"
   end
 
   create_table "fb_users", :force => true do |t|
@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(:version => 20120819134923) do
     t.datetime "updated_at"
   end
 
+  create_table "push_notification_ids", :force => true do |t|
+    t.string   "device_id"
+    t.float    "fb_user_id"
+    t.integer  "app_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", :force => true do |t|
     t.float    "follower_id"
     t.float    "followed_id"
@@ -85,7 +93,7 @@ ActiveRecord::Schema.define(:version => 20120819134923) do
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "scores", :force => true do |t|
-    t.integer  "score_fb_id"
+    t.float    "score_fb_id"
     t.integer  "app_id"
     t.string   "level_id"
     t.float    "score"
