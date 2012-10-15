@@ -110,6 +110,7 @@ class ApiController < ApplicationController
     fb_user = parsed_json['fb_user']
     app_id = parsed_json['app_id']
 
+
     if(app_id.to_s != app_id_param)
       render :json => {:result => "error app Ids dont match #{app_id.to_is} != #{app_id_param}"}
       return
