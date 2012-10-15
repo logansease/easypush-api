@@ -91,6 +91,36 @@ class ApiController < ApplicationController
     render :json => {:result => the_score }
   end
 
+
+  def register_push
+
+    app_id_param = params[:app_id]
+    app = App.find_by_app_id(app_id_param)
+
+
+    encoded64 = params[:data]
+    encoded = Base64.decode64(encoded64 )
+
+    data = decrypt(encoded, app.app_secret)
+
+    parsed_json = ActiveSupport::JSON.decode(data)
+
+    device = parsed_json['device_id']
+    token = parsed_json['token']
+    fb_user = parsed_json['fb_user']
+
+    if(app_id.to_s != app_id_param)
+      render :json => {:result => "error app Ids dont match #{app_id.to_is} != #{app_id_param}"}
+      return
+    end
+
+    appNotifications =  PushNotificationId.find_by_app_id(app_id)
+    if(!appNotifications.include?(device))
+      device = PushNotificationId.create!(:app_id => app_id, :device_id => device, :fb_user_id => fb_user)
+    end
+
+  end
+
   def get_scores
 
       app = App.find_by_app_id(params[:app_id])

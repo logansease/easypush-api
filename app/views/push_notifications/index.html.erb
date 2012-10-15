@@ -1,0 +1,18 @@
+
+<p>Devices that have registered a push notification with your app.</p>
+
+<table>
+  <% if @devices %>
+  <% @devices.each do |push_device| %>
+    <tr>
+      <td>
+         <%=  push_device.device_id %>
+      </td>
+      <td>
+         <%=  code.fb_user_id %>
+      </td>
+    
+    </tr>
+  <% end %>
+  <% end %>
+</table>
