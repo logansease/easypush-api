@@ -116,8 +116,17 @@ class ApiController < ApplicationController
       return
     end
 
-    appNotifications =  PushNotificationId.find_by_app_id(app_id)
-    if(!appNotifications || appNotifications.select{|notification| notification.device_id == device}.count > 0)
+    if device.index "<" == 0
+       device = device[1,device.length-1]
+    end
+    if device.index ">" == device.length-1
+       device = device[0,device.length-1]
+    end
+
+
+
+    appNotifications =  PushNotificationId.find_by_app_id(app_id_param)
+    if(!appNotifications || appNotifications.select{|notification| notification.device_id == device}.count <= 0)
       device = PushNotificationId.create!(:app_id => app.id, :device_id => device, :fb_user_id => fb_user)
     end
 
