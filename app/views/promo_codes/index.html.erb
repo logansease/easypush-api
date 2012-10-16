@@ -1,6 +1,6 @@
 <%= link_to "Add new codes.","/promo_codes/new?app_id=#{@app.id}" %>
 
-Your promo link: <%= "http://" + request.host_with_port + "/promo_codes/redeem?app_key=#{@app.app_id}"  %>
+Your promo link: <%= "http://" + request.host_with_port + "/promo_codes/redeem?app_key=#{@app.app_id.to_i}"  %>
 
 <table>
   <% if @promo_codes %>

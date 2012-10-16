@@ -27,7 +27,7 @@
       <td><%= link_to 'View In App Store', "#{CONSTANTS[  :app_store_url]}#{@app.app_store_id}" %></td>
       </tr>
             <tr>
-            <td><b>App Id: </b> <%= @app.app_id %></td>
+            <td><b>App Id: </b> <%= @app.app_id.to_i %></td>
             </tr>
 
      <tr>
