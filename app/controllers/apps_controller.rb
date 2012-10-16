@@ -1,5 +1,8 @@
 class AppsController < ApplicationController
 
+  before_filter :authenticate
+  before_filter :correct_user, :except => [:create,:new ]
+
   def show
     id = params[:id]
     @app = App.find(id)
@@ -32,6 +35,22 @@ class AppsController < ApplicationController
      @app = App.new
   end
 
+  def edit
+    @app = App.find(params[:id])
+    render 'new'
+  end
+
+  def update
+    app = App.find(params[:id])
+    app.update_attributes(params[:app])
+    if app.save!
+       redirect_to(app, :flash => {:success =>"App Updated."} )
+    else
+       @title = "Edit App"
+       render 'new'
+    end
+  end
+
   def index
      if current_user.admin
         @apps = App.all
@@ -44,5 +63,16 @@ class AppsController < ApplicationController
     App.find(params[:id]).destroy
     redirect_to current_user
   end
+
+  private
+
+  def correct_user
+     @app = App.find(params[:id])
+     if(!@app)
+       @app = App.find(params[:app_id])
+     end
+     redirect_to(root_path) unless current_user?(@app.user) || current_user.admin?
+  end
+
 
 end

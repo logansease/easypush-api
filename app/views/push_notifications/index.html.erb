@@ -1,6 +1,8 @@
 
-<p>Devices that have registered a push notification with your app.</p>
-
+ <p>
+   <%= link_to  'Send notification to all devices', "/push_notifications/create_message?app_id=#{@app.id}"  %>
+ </p>
+ <p>Registered Devices ( <%=@devices.count%> ):</p>
 <table>
   <% if @devices %>
   <% @devices.each do |push_device| %>

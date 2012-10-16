@@ -14,6 +14,10 @@
           											 :confirm => "Are you sure?",
           											 :title => @app.app_name %>
           		</td>
+
+                 <td class="edit">
+       			    <%= button_to "edit", edit_app_path(@app), :method => :get %>
+       		        </td>
          	  <% end %>
     </tr>
   </table>
@@ -35,7 +39,7 @@
       </tr>
 
       <tr>
-            <td> <%= link_to  'Registered Push Notification Ids', '/push_notifications?app_id=' + @app.id.to_s  %></td>
+            <td> <%= link_to  'Push Notifications', '/push_notifications?app_id=' + @app.id.to_s  %></td>
       </tr>
 
     <tr><td> <%= link_to  'View All Users', '/apps/show_users?app_id=' + @app.id.to_s  %></td></tr>

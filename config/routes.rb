@@ -28,7 +28,12 @@ SampleApp::Application.routes.draw do
       get :show_users
     end
   end
-  resources :push_notifications, :only => [:index]
+  resources :push_notifications, :only => [:index]  do
+    collection do
+      get :create_message
+      post :send_message
+    end
+  end
   resources :microposts, :only => [:create, :destroy] 
   resources :relationships, :only => [:create, :destroy]
   resources :fb_connections, :only => [:create, :destroy]

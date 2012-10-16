@@ -1,0 +1,29 @@
+<p>Create a new push notification message</p>
+
+<%= form_tag("/push_notifications/send_message", :method => "post") do %>
+
+<div class="field">
+
+  <%= label_tag('Alert Message')%>
+  <%= text_field_tag(:alert )%> <br/>
+
+  <%= label_tag('Badge')%>
+  <%= text_field_tag(:badge) %> <br/>
+
+  <%= label_tag('Sound') %>
+  <%= text_field_tag(:sound)%> <br/>
+
+  <%= label_tag( 'Custom Properties in ruby syntax { :property => "value", :detail => "value2" }' )%>
+  <%= text_field_tag (:custom_properties)%> <br/>
+
+  <%= check_box_tag(:dev) %>
+  <%= label_tag( "Send to development") %>   </br>
+
+  <%= hidden_field_tag :app_id, @app.id %>
+  <%= hidden_field_tag :apn_app_id, @apn_app.id %>
+
+  <%= submit_tag('Send') %>
+
+</div>
+
+<% end %>
