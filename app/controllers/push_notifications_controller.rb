@@ -52,9 +52,11 @@ class PushNotificationsController < ApplicationController
     #call apn_app send
 
     @apn_app.send_notifications
-    rescue Exception
+    rescue Exception  => e
+      puts e.message
+      puts e.backtrace.inspect
       APN::Notification.delete(@apn_app.notifications.where(:sent_at => nil))
-      redirect_to(@app, :flash => {:success =>"There was an error sending your notifications"} )
+      redirect_to(@app, :flash => {:success =>"There was an error sending your notifications: " + e.message} )
       return
     end
 
