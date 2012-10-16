@@ -16,7 +16,7 @@ class PushNotificationsController < ApplicationController
 
     @apn_app = APN::App.find_by_apn_dev_cert_and_apn_prod_cert(@app.dev_push_cert, @app.prod_push_cert)
     if(!@apn_app)
-      @apn_app = APN::App.create(:apn_dev_cert => @app.dev_push_cert, :apn_prod_cert => @app.prod_push_cert)
+      @apn_app = APN::App.create!(:apn_dev_cert => @app.dev_push_cert, :apn_prod_cert => @app.prod_push_cert)
     end
     render 'create_message'
   end
