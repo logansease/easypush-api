@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/logansease/apn_on_rails.git
+  revision: 4d3c94ed897f1dce9104992859891104978ec9d6
+  specs:
+    apn_on_rails (0.5.1)
+      actionpack
+      activerecord
+      configatron
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -31,10 +40,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.8)
     annotate (2.4.0)
-    apn_on_rails (0.5.1)
-      actionpack
-      activerecord
-      configatron
     arel (2.2.3)
     builder (3.0.0)
     coffee-rails (3.1.1)
@@ -157,7 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (= 2.4.0)
-  apn_on_rails
+  apn_on_rails!
   coffee-rails (~> 3.1.0)
   execjs
   factory_girl_rails (= 1.0)

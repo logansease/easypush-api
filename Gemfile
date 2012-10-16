@@ -15,7 +15,7 @@ gem 'koala', '1.3.0'
 gem 'jquery-rails'
 gem 'stripe'
 gem 'mail', "2.3.0"
-gem 'apn_on_rails'
+gem 'apn_on_rails', :git => 'https://github.com/logansease/apn_on_rails.git'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
