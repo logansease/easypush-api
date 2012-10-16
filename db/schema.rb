@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016190726) do
+ActiveRecord::Schema.define(:version => 20121016211823) do
 
   create_table "apn_apps", :force => true do |t|
     t.text     "apn_dev_cert"
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20121016190726) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "app_store_id"
-    t.string   "dev_push_cert"
-    t.string   "prod_push_cert"
+    t.text     "dev_push_cert",   :limit => 255
+    t.text     "prod_push_cert",  :limit => 255
   end
 
   create_table "fb_connections", :force => true do |t|

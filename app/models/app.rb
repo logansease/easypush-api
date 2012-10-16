@@ -27,4 +27,6 @@ class App < ActiveRecord::Base
     FbUser.where( " fb_id in (select distinct ( score_fb_id ) from scores where app_id = " + self.id.to_s + ") ")
   end
 
+
+
 end
