@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20121016211823) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "app_store_id"
-    t.text     "dev_push_cert",   :limit => 255
-    t.text     "prod_push_cert",  :limit => 255
+    t.text     "dev_push_cert"
+    t.text     "prod_push_cert"
   end
 
   create_table "fb_connections", :force => true do |t|
