@@ -3,8 +3,8 @@ class CreateApps < ActiveRecord::Migration
     create_table :apps do |t|
       t.integer :user_id
       t.float :app_id
-      t.sloasttring :app_secret
-      t.fstring :expiration_date
+      t.string :app_secret
+      t.string :expiration_date
       t.string :app_name
 
       t.timestamps
