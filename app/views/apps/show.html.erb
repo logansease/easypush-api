@@ -1,7 +1,5 @@
 
 <table class="" summary="App info">
-  <p>If you are interested in using the Social Scores API in your app, please <%= link_to 'contact me', contact_path %> first. Things are mostly ready to go, but this is still very new, so I'd appreciate you dropping me a line.</p>
-
 
    <tr>
 		<td class="main">
@@ -35,27 +33,8 @@
      </tr>
 
       <tr>
-                  <td> <%= link_to  'Manage Your Promo Codes', '/promo_codes?app_id=' + @app.id.to_s  %></td>
-      </tr>
-
-      <tr>
             <td> <%= link_to  'Push Notifications', '/push_notifications?app_id=' + @app.id.to_s  %></td>
       </tr>
 
-    <tr><td> <%= link_to  'View All Users', '/apps/show_users?app_id=' + @app.id.to_s  %></td></tr>
-
-      <tr> <td><b>Level: </b></td>
-      <td><b>Users: </b>   </td>
-      <td><b>High Score: </b> </td>
-    </tr>
-
-        <% @levels.each do |l|%>
-         <tr>
-         <td> <%= link_to  l.level_id, '/apps/show_level?level_id=' + l.level_id + '&app_id=' + @app.id.to_s %></td>
-         <td> <%= l.score_fb_id %> </td>
-         <td> <%= l.score %></td>
-         </tr>
-              <%  end %>
-         
 
 </table>
