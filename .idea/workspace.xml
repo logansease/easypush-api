@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835e6ac6-5744-4a4b-bd7a-bc389cbb1481" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/about.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/about.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/doc.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/doc.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/plans/index.html.erb" afterPath="$PROJECT_DIR$/app/views/plans/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,15 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="2" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/apps/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,10 +82,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doc.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="doc.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/pages/doc.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="8" selection-start="1637" selection-end="1637" vertical-scroll-proportion="1.4697406">
+            <state line="75" column="21" selection-start="0" selection-end="3376" vertical-scroll-proportion="-10.708333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="91" selection-start="294" selection-end="294" vertical-scroll-proportion="0.17291066">
               <folding />
             </state>
           </provider>
@@ -134,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/user_mailer/registration_activation.html.erb" />
         <option value="$PROJECT_DIR$/app/views/apps/show.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/db/migrate/20120113042634_create_fb_connections.rb" />
@@ -150,6 +146,7 @@
         <option value="$PROJECT_DIR$/app/views/pages/about.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/doc.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/pages/home.html.erb" />
       </list>
     </option>
   </component>
@@ -816,13 +813,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_fb.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="32" selection-start="478" selection-end="478" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/sessions_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="88" column="16" selection-start="1970" selection-end="1970" vertical-scroll-proportion="0.0">
@@ -923,7 +913,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/doc.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="8" selection-start="1637" selection-end="1637" vertical-scroll-proportion="1.4697406">
+        <state line="75" column="21" selection-start="0" selection-end="3376" vertical-scroll-proportion="-10.708333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="91" selection-start="294" selection-end="294" vertical-scroll-proportion="0.17291066">
           <folding />
         </state>
       </provider>
