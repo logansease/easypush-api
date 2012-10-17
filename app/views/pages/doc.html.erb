@@ -2,38 +2,62 @@
 <div class="well">
 <h1>Getting Started - iOS Setup</h1>
 <h3>Step 1-  Download the iOS API Sample app</h3>
-<p><%= link_to 'Beta version 1.0', 'files/SocialScoresExample-beta1.0.zip' %></p>
+<p><%= link_to 'Version 1.0', 'https://github.com/logansease/pushyExample' %></p>
 
 <h3>Step 2-  Extract and open the sample app</h3>
 <h3>Step 3-  Copy Dependant Libraries</h3>
 <p>Drag and drop the following folders from the sample app into your project</p>
 <ul>
-  <li>Facebook</li>
   <li>ASIHTTP</li>
-  <li>SBJSON</li>
-  <li>Reachability</li>
 </ul>
-<h3>Step 4-  Copy Social Scores Files</h3>
-<p>Drag and drop the files in the SocialScores folder from the sample project.</p>
+<h3>Step 4-  Copy Pushy API Files</h3>
+<p>Drag and drop the files in the Pushy folder from the sample project.</p>
 <h3>Step 5-  Link Required Frameworks</h3>
 <p>Add the following frameworks to your project</p>
 <ul>
-  <li>libSocialScores.a -- from the sample app</li>
   <li>MobileCoreServices</li>
   <li>CFNetwork</li>
   <li>libz.dylib</li>
   <li>SystemConfiguration</li>
-  <li>MessageUI</li>
-  <li>Security</li>
 </ul>
 
-<h3>Step 6-  Set up Facebook App</h3>
-<p>Go to facebook.com/developers and register a new app.</p>
-<p>In your project, open SocialScoresConfig.m and add the app ID and Secret Key for your app. Also set the link and picture URLs you'd like to use when a user makes a posting on facebook with the API.</p>
+<h3>Step 6- Set your project up for Push Notifications</h3>
+    <p>Go to the Apple iOS Provisioning Portal, configure your app for Push Notifications and download your push certificates.</p>
+<h3>Step 7- Convert your certificates  </h3>
+  <p>Go to the folder where you saved your certificates in step 6. Run the following commands on both the
+  Development and the Production certificate. Ensure that you name them appropriately. In the commands below,
+  replace aps_push_certificate_DEV with the names of the certificates you saved in step 6. The output file name 'outputName_DEV_cert'
+  can be replaced with any name, just so you can remember which is development and which is production.</p>
+  <div class="code-box">
+  $ openssl x509 -in aps_push_certificate_DEV.cer -inform der
+      -out outputName_DEV_cert.pem</p>
+  $ openssl pkcs12 -nocerts -out outputName_DEV_cert.pem -in outputName_DEV_cert.p12</p>
+  </div>
 
-<h3>Step 7-  Set up Social Scores App</h3>
-<p>Register at socialscoresapi.com. Create a new app.</p>
-<p>In your project, open SocialScoresConfig.m and add the app ID and secret Key for your app.</p>
+<h3>Step 8-  Set up Pushy API App</h3>
+<p>Register at pushyapi.com. Create a new app.</p>
+<p>Copy and paste the contents of the dev/prod .pem files generated in step 7 into the dev / prod certificate fields.</p>
+<p>In your project, open PushyNotificationService.h and add the app ID and secret Key for your app.</p>
+
+<h3>Step 9- Add Pushy Registration code to your AppDelegate</h3>
+<p>
+  <div class="code-box">
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        ...
+        NSLog(@"Registering for push notifications...");
+        [[UIApplication sharedApplication]
+            registerForRemoteNotificationTypes:
+            (UIRemoteNotificationType)
+            (UIRemoteNotificationTypeBadge |
+            UIRemoteNotificationTypeSound |
+            UIRemoteNotificationTypeAlert)];
+    }
+    - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+        NSString *str = [NSString stringWithFormat:@"Device Token=%@",deviceToken];
+        [[PushNotificationService sharedService] saveNewDevice:deviceToken];
+    }
+  </div>
+</p>
 
 <h3>You're ready to go!</h3>
 
@@ -41,20 +65,12 @@
 
 <div class="well">
   <h1>Getting Started - Use it</h1>
-  <h3>Show the Settings Controller</h3>
-  <p>I have included a settings view controller to include in your project to allow the user to log in to facebook and to enable the Social Scores api.</p>
-  <p>You can use this by simply pushing the provided SettingsController on a button press.</p>
+  <p>Log into PushyAPI.com</p>
+  <p>Select your App, and press 'Push Notifications'.</p>
+  <p>Here you can view how many devices have registered to receive push notifications from within your app.</p>
+  <p>Press on 'Send notification', and fill out a simple form with the Info you'd like in your Notification and press send.</p>
 
-  <h3>After a level is completed, call the API.</h3>
-  <div class="code-box">
--(void) onLevelComplete{
-   SocialScoresManager * scoreManager = [SocialScoresManager sharedManager];
-   NSDictionary * options = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: [NSNumber numberWithInt:score], nil] forKeys:[NSArray arrayWithObjects:@"score", nil]]; <
-   [scoreManager showTopScoresForLevel:@"Level 1" inViewController:self withOptions:options];
-}
-  </div>
-  <p>This will save the player's score, and display a leader board for this level. The player will be able to see how their score ranks amongst their friends or the whole community. They will be able to share the scoreboard on their facebook wall.</p>
-
-
+  <h3>That's it!</h3>
+  <p>All users of your app that have registered will receive the push notification to their device. It's that easy!</p>
 
 </div>

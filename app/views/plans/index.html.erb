@@ -1,19 +1,9 @@
 <div id="plans">
-  <h2>Pushy API Yearly Plans</h2>
-  <% @plans.each do |plan| %>
-    <div class="plan">
-      <div class="name"><%= plan.name %></div>
-      <div class="details">
-        <div class="price">
-          <%= number_to_currency plan.price, :precision => 0 %>
-        </div>
-        <div class="per_month">per year</div>
-        <div class="desc"><%= plan.description %></div>
-        <div class="signup">
-          <%= link_to "Sign up", new_subscription_path(:plan_id => plan.id) %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <h2>Pushy API Plans</h2>
+  <p>
+    Pushy API will give you up to 5000 Push Notifications messages per month for free.
+    You may purchase additional push packages here shortly. They will cost roughly $10 for each additional 5K messages.
+  </p>
+
   <div class="clear"></div>
 </div>
