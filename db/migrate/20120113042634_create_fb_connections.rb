@@ -1,4 +1,4 @@
-class CreateFbConnection < ActiveRecord::Migration
+class CreateFbConnections < ActiveRecord::Migration
   def self.up
     create_table :fb_connection do |t|
       t.integer :fbc_user_id

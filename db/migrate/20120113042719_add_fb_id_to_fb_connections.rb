@@ -1,4 +1,4 @@
-class AddFbIdToFbConnection < ActiveRecord::Migration
+class AddFbIdToFbConnections < ActiveRecord::Migration
   def self.up
     add_column :fb_connection, :fbc_fb_id, :bigint
   end
