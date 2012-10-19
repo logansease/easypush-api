@@ -5,7 +5,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 587,
   :domain               => 'gmail.com',
   :user_name            => "logansease",
-  :password             => "iParty!mobile",
+  :password             => "iLike2Party",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
