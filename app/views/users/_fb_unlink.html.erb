@@ -3,7 +3,7 @@
   <%= hidden_field_tag :fb_user_id, "" %>
 <div id="fb-root"></div>    
 <p>
-<div class="fb-login-button" onclick="document.unlink_form.submit();">Unlink from Facebook</div>
+  <%= link_to facebook_logo, "#", {:onclick => "document.unlink_form.submit();"} %>  Unlink
 </p>
 <% end %>
 
